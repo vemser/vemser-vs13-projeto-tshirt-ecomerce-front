@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Register } from "../pages/Register";
+
+import Checkout from "../pages/Checkout/Checkout";
 
 export default function Router() {
   return (
@@ -14,7 +15,7 @@ export default function Router() {
           }
         />
 
-        <Route path="/register" element={<Register />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </BrowserRouter>
   );

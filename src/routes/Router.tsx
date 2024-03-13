@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Register } from "../pages/Register";
+import Catalog from "../pages/catalog/Catalog";
 
 export default function Router() {
   return (
@@ -13,8 +13,7 @@ export default function Router() {
             </>
           }
         />
-
-        <Route path="/register" element={<Register />} />
+        <Route path="/catalog" element={<Catalog />} />
       </Routes>
     </BrowserRouter>
   );

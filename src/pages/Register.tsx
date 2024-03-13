@@ -1,9 +1,11 @@
+import womanImage from '../assets/foto-mulher-jovem.svg'
+
 export function Register(): JSX.Element {
     return (
         <>
             <main className="flex flex-row">
-                <figure className="w-2/4">
-                    <img src="https://via.placeholder.com/300" alt="" />
+                <figure className="w-2/4 bg-tertiary flex justify-center items-center">
+                    <img className="w-4/6 h-4/6" src={womanImage} alt={"Imagem mulher ruiva jovem"} />
                 </figure>
 
                 <section className="w-2/4 flex flex-col h-screen p-4 justify-center items-center">
@@ -30,7 +32,7 @@ export function Register(): JSX.Element {
                             <input className="border rounded-md border-black p-1" type="password" id="password" placeholder="Senha..." />
                         </div>
 
-                        <button>
+                        <button className="bg-primary h-14 text-secondary rounded-xl my-4">
                             Cadastrar
                         </button>
                     </form>

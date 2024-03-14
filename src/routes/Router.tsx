@@ -1,27 +1,27 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import DefaultLayout from "../layout/DefaultLayout";
 import Checkout from "../pages/Checkout/Checkout";
-import { Login } from "../pages/Login/Login";
-import { Register } from "../pages/Register";
+
+import { NotFound } from "../pages/NotFound/NotFound";
+import { Register } from "../pages/Register/Register";
+import { Login } from "../pages/login/Login";
 import { ForgotPassword } from "../pages/ForgotPassword/ForgotPassword";
 
 export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <h1>Home</h1>
-            </>
-          }
-        />
-        
+        <Route element={<DefaultLayout />}>
+          <Route path="/" element={<h1>Home</h1>} />
+          <Route path="/checkout" element={<Checkout />} />
+        </Route>
 
-        <Route path="/checkout" element={<Checkout />} />
+        <Route path="*" element={<NotFound />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/recover-password" element={<ForgotPassword />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );

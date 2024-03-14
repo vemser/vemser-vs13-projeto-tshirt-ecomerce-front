@@ -4,7 +4,6 @@ import { CgClose } from "react-icons/cg";
 import { FiHeart, FiSearch, FiShoppingCart } from "react-icons/fi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Link, useNavigate } from "react-router-dom";
-import WhiteLogo from "../../assets/white-logo.png";
 import Logo from "../Logo/Logo";
 
 const Header = () => {
@@ -34,7 +33,7 @@ const Header = () => {
     >
       <Box className="bg-primary h-full text-center py-8 px-10">
         <div className="flex justify-between items-center">
-          <img src={WhiteLogo} alt="logo do iShirt branca" />
+          <Logo color="secondary" />
           <CgClose
             onClick={() => setMobileOpen(false)}
             size={32}

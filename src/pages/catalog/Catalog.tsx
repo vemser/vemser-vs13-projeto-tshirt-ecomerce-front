@@ -1,15 +1,12 @@
 import ProductCard from "../../components/product-card/ProductCard";
+import ProductMenu from "../../components/product-menu/ProductMenu";
 
 function Catalog() {
   return (
     <main className="flex gap-8 w-full h-full py-16 px-8">
-      <section className="w-full h-auto max-w-80 bg-zinc-400">
+      <section className="w-full h-auto max-w-80">
         <div className="w-full h-full">
-          <h3>Menu Item</h3>
-          <h3>Menu Item</h3>
-          <h3>Menu Item</h3>
-          <h3>Menu Item</h3>
-          <h3>Menu Item</h3>
+          <ProductMenu />
         </div>
       </section>
       <section>

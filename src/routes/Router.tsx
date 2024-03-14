@@ -12,10 +12,10 @@ export default function Router() {
       <Routes>
         <Route element={<DefaultLayout />}>
           <Route path="/" element={<h1>Home</h1>} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Route>
 
-        <Route path="/checkout" element={<Checkout />} />
+        <Route path="*" element={<NotFound />} />
         <Route path="/register" element={<Register />} />
       </Routes>
     </BrowserRouter>

@@ -1,5 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo.png";
+import { FiSearch, FiHeart, FiShoppingCart } from "react-icons/fi";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -19,20 +21,36 @@ const Header = () => {
             <Link to={"/"}>Início</Link>
           </li>
           <li className="text-gray-600 cursor-pointer hover:text-black">
-            <Link to={"/"}>Produtos</Link>
+            <Link to={"/produtos"}>Produtos</Link>
           </li>
           <li className="text-gray-600 cursor-pointer hover:text-black">
-            <Link to={"/"}>Depoimentos</Link>
+            <Link to={"/depoimentos"}>Depoimentos</Link>
           </li>
         </ul>
 
-        <div className="flex gap-8">
+        <div className="flex gap-1 items-center">
+          <div className="p-3 rounded-full hover:bg-gray-100 transition-colors cursor-pointer">
+            <FiSearch size={24} />
+          </div>
+          <div className="p-3 rounded-full hover:bg-gray-100 transition-colors cursor-pointer">
+            <FiHeart size={24} />
+          </div>
+          <div className="p-3 rounded-full hover:bg-gray-100 transition-colors cursor-pointer">
+            <FiShoppingCart size={24} />
+          </div>
+
           <button
             onClick={() => navigate("/login")}
-            className="bg-black text-white font-medium px-9 py-2 rounded-lg transition-opacity hover:opacity-80"
+            className="hidden md:block bg-black text-white font-medium px-9 py-3 rounded-lg transition-opacity hover:opacity-80 ml-5"
           >
             Login
           </button>
+          <div className="block md:hidden ml-2 p-3 rounded-full cursor-pointer hover:bg-gray-100 transition-colors">
+            <RxHamburgerMenu
+              size={26}
+              className=""
+            />
+          </div>
         </div>
       </nav>
     </header>

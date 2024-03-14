@@ -10,15 +10,7 @@ export default function Router() {
       <Header />
 
       <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <h1>Home</h1>
-            </>
-          }
-        />
-
+        <Route path="/" element={<></>} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/register" element={<Register />} />
       </Routes>

@@ -9,6 +9,9 @@ export default {
         tertiary: "#616161",
         quaternary: "#757575",
       },
+      backgroundImage: {
+        'background': "url('src/assets/Background.png')",
+      }
     },
   },
   plugins: [],

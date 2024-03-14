@@ -1,6 +1,7 @@
 import { Accordion, AccordionSummary, Slider, Typography, AccordionDetails, Checkbox } from "@mui/material";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
 import React from "react";
+import { LuChevronDown } from "react-icons/lu";
 
 export function valueRange(value: number) {
     return `${value}`
@@ -25,7 +26,7 @@ function ProductMenu () {
                     }}
                 >
                     <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
+                        expandIcon={<LuChevronDown />}
                         aria-controls="panel1-content"
                         id="panel1-header"
                         sx={{
@@ -108,7 +109,7 @@ function ProductMenu () {
                     }}
                 >
                     <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
+                        expandIcon={<LuChevronDown />}
                         aria-controls="panel1-content"
                         id="panel1-header"
                         sx={{
@@ -173,7 +174,7 @@ function ProductMenu () {
                     }}
                 >
                     <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
+                        expandIcon={<LuChevronDown />}
                         aria-controls="panel1-content"
                         id="panel1-header"
                         sx={{
@@ -281,9 +282,9 @@ function ProductMenu () {
                                     {...label}
                                     sx={{
                                         padding: 0,
-                                        color: '#2bff00',
+                                        color: '#2aaa04',
                                         '&.Mui-checked': {
-                                            color: '#2bff00',
+                                            color: '#2aaa04',
                                         },
                                     }}
                                 />
@@ -308,7 +309,7 @@ function ProductMenu () {
                     }}
                 >
                     <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
+                        expandIcon={<LuChevronDown />}
                         aria-controls="panel1-content"
                         id="panel1-header"
                         sx={{

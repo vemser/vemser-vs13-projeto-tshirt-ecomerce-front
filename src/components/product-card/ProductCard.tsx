@@ -1,4 +1,4 @@
-import { StarOutline, Visibility } from "@mui/icons-material";
+import { LuEye, LuHeart } from "react-icons/lu";
 
 function ProductCard() {
   return (
@@ -8,10 +8,10 @@ function ProductCard() {
         <div className="w-full h-full p-2 flex flex-col justify-between group/overlay absolute top-0 left-0 invisible group-hover/card:visible">
           <div className="flex flex-col gap-2 w-full justify-end items-end">
             <button className="bg-white py-2 px-3 rounded-full hover:bg-zinc-100">
-              <Visibility />
+              <LuEye />
             </button>
             <button className="bg-white py-2 px-3 rounded-full hover:bg-zinc-100">
-              <StarOutline />
+              <LuHeart />
             </button>
           </div>
           <div className="w-full flex justify-center">

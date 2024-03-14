@@ -1,8 +1,8 @@
 import { useForm } from 'react-hook-form'
-import womanImage from '../assets/foto-mulher-jovem.svg'
+import womanImage from '../../assets/foto-mulher-jovem.svg'
 
 import { yupResolver } from "@hookform/resolvers/yup";
-import { schema } from '../schemas/RegisterSchemas';
+import { schema } from '../../schemas/RegisterSchemas';
 
 export function Register(): JSX.Element {
 

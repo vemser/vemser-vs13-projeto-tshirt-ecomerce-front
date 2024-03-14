@@ -1,25 +1,24 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import DefaultLayout from "../layout/DefaultLayout";
 import Checkout from "../pages/Checkout/Checkout";
-import { Login } from "../pages/Login/Login";
-import { Register } from "../pages/Register";
+
 import { NotFound } from "../pages/NotFound/NotFound";
-
-import Header from "../components/Header/Header";
-
+import { Register } from "../pages/Register/Register";
+import { Login } from "../pages/login/Login";
 
 export default function Router() {
   return (
     <BrowserRouter>
-
-      <Header />
-
       <Routes>
-        <Route path="/" element={<></>} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route element={<DefaultLayout />}>
+          <Route path="/" element={<h1>Home</h1>} />
+          <Route path="/checkout" element={<Checkout />} />
+        </Route>
+
+        <Route path="*" element={<NotFound />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="*" element={<NotFound />} />
-
       </Routes>
     </BrowserRouter>
   );

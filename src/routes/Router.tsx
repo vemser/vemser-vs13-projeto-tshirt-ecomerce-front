@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Checkout from "../pages/Checkout/Checkout";
 import { Login } from "../pages/Login/Login";
+import { Register } from "../pages/Register";
 
 export default function Router() {
   return (
@@ -18,6 +19,7 @@ export default function Router() {
         <Route path="/login" element={<Login />} />
 
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </BrowserRouter>
   );

@@ -2,6 +2,10 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    fontFamily: {
+      sans: ["Jost", "sans-serif"],
+      serif: ["DM Sans", "serif"],
+    },
     extend: {
       colors: {
         primary: "#121212",

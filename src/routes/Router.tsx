@@ -5,6 +5,7 @@ import Checkout from "../pages/Checkout/Checkout";
 
 import { NotFound } from "../pages/NotFound/NotFound";
 import { Register } from "../pages/Register/Register";
+import { Login } from "../pages/login/Login";
 
 export default function Router() {
   return (
@@ -17,6 +18,7 @@ export default function Router() {
 
         <Route path="*" element={<NotFound />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );

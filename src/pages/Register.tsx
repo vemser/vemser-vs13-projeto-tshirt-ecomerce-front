@@ -17,12 +17,12 @@ export function Register(): JSX.Element {
 
     return (
         <>
-            <main className="flex flex-row">
-                <figure className="w-2/4 h-screen bg-tertiary flex justify-center items-end">
+            <main className="flex md:flex-row flex-col">
+                <figure className="md:w-2/4 w-full md:h-screen h-5/6 bg-tertiary flex justify-center items-end">
                     <img className="w-4/6 h-4/6" src={womanImage} alt={"Imagem mulher ruiva jovem"} />
                 </figure>
 
-                <section className="w-2/4 flex flex-col h-screen p-4 justify-center items-center">
+                <section className="md:w-2/4 w-full flex flex-col h-screen p-4 justify-center items-center">
                 
                     <form onSubmit={handleSubmit(makeRegister)} className="flex flex-col w-full max-w-sm">
 

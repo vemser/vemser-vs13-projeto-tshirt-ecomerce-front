@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import womanImage from "../../../src/assets/foto-mulher-jovem.svg";
 import { NavLink } from "react-router-dom";
-
+import { ChevronLeft } from "lucide-react";
 
 interface FormInputs {
   email: string;
@@ -40,8 +40,9 @@ export const ForgotPassword = () => {
       <section className="w-full md:w-2/4 flex flex-col h-screen p-4 justify-center items-center">
         <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md">
           <div className="flex flex-col gap-1">
-            <NavLink to="/login" className="self-start mb-4">
-              <p className="cursor-pointer text-base"><i data-lucide="chevron-left"></i>Voltar</p>
+            <NavLink to="/login" className="self-start mb-4 flex items-center">
+              <ChevronLeft className="mr-1" />
+              <span className="cursor-pointer text-base">Voltar</span>
             </NavLink>
             <h1 className="font-extrabold text-3xl ">Esqueceu sua Senha?</h1>
             <p className="text-base text-gray-400 mb-7">

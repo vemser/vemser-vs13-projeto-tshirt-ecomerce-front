@@ -1,20 +1,15 @@
-import { Link, useNavigate } from "react-router-dom";
-import Logo from "../../assets/logo.png";
-import { FiSearch, FiHeart, FiShoppingCart } from "react-icons/fi";
+import { FiHeart, FiSearch, FiShoppingCart } from "react-icons/fi";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { Link, useNavigate } from "react-router-dom";
+import Logo from "../Logo/Logo";
 
 const Header = () => {
   const navigate = useNavigate();
 
   return (
-    <header className="flex justify-center p-7">
-      <nav className="max-w-7xl w-full flex justify-between gap-6">
-        <img
-          onClick={() => navigate("/")}
-          className="cursor-pointer"
-          src={Logo}
-          alt="logo do iShirt"
-        />
+    <header className="w-full flex justify-center p-7">
+      <nav className="container w-full flex justify-between gap-6">
+        <Logo onClick={() => navigate("/")} className="cursor-pointer" />
 
         <ul className="hidden gap-10 items-center md:flex">
           <li className="font-medium cursor-pointer hover:text-black">
@@ -46,10 +41,7 @@ const Header = () => {
             Login
           </button>
           <div className="block md:hidden ml-2 p-3 rounded-full cursor-pointer hover:bg-gray-100 transition-colors">
-            <RxHamburgerMenu
-              size={26}
-              className=""
-            />
+            <RxHamburgerMenu size={26} className="" />
           </div>
         </div>
       </nav>

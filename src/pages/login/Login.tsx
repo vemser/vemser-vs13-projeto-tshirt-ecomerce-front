@@ -3,6 +3,8 @@ import { Button } from "@mui/material";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import womanImage from "../../../src/assets/foto-mulher-jovem.svg";
+import { NavLink } from "react-router-dom";
+import { ChevronLeft } from "lucide-react";
 
 interface FormInputs {
   email: string;
@@ -40,6 +42,10 @@ export const Login = () => {
       <section className="w-full md:w-2/4 flex flex-col h-screen p-4 justify-center items-center">
         <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md">
           <div className="flex flex-col gap-1">
+          <NavLink to="/" className="self-start mb-4 flex items-center">
+              <ChevronLeft className="mr-1" />
+              <span className="cursor-pointer text-base">Voltar</span>
+            </NavLink>
             <h1 className="text-3xl font-bold">Bem vindo</h1>
             <p className="text-base text-gray-400 mb-7">
               Por favor, insira suas credenciais
@@ -78,7 +84,12 @@ export const Login = () => {
             )}
           </div>
 
-          <p className="mb-8 text-right cursor-pointer">Esqueceu a senha?</p>
+          <NavLink
+            to="/recover-password"
+            className="mb-8 text-right cursor-pointer"
+          >
+            <p className="mb-8 text-right cursor-pointer">Esqueceu a senha?</p>
+          </NavLink>
 
           <Button
             type="submit"
@@ -87,11 +98,18 @@ export const Login = () => {
             sx={{
               background: "#121212",
               "&:hover": { backgroundColor: "#0e0e0e" },
+              borderRadius: "10px",
             }}
           >
             Login
           </Button>
         </form>
+        <div className="flex justify-end mt-7 items-center ">
+          <p className="text-base text-gray-400">Não tem uma conta?</p>
+          <NavLink to="/register" className="self-start flex items-center ml-1">
+            Cadastre-se agora
+          </NavLink>
+        </div>
       </section>
     </main>
   );

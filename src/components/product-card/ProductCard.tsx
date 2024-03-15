@@ -3,7 +3,7 @@ import { LuEye, LuHeart } from "react-icons/lu";
 function ProductCard() {
   return (
     <div>
-      <div className="group/card relative hover: cursor-pointer">
+      <div className="group/card relative hover:cursor-pointer">
         <img src="https://placeholder.com/250x300" alt="imagem placeholder" />
         <div className="w-full h-full p-2 flex flex-col justify-between group/overlay absolute top-0 left-0 invisible group-hover/card:visible">
           <div className="flex flex-col gap-2 w-full justify-end items-end">

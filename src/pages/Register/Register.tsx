@@ -3,6 +3,7 @@ import womanImage from '../../assets/foto-mulher-jovem.svg'
 
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from '../../schemas/RegisterSchemas';
+import { Link } from 'react-router-dom';
 
 export function Register(): JSX.Element {
 
@@ -70,6 +71,11 @@ export function Register(): JSX.Element {
                         <button className="bg-primary h-14 text-secondary rounded-xl my-4">
                             Cadastrar
                         </button>
+
+                        <p className='text-gray-400 text-center flex justify-center gap-1'>
+                            <span>Já tem uma conta?</span> 
+                            <Link className='text-primary' to={'/login'}>Faça login aqui</Link>
+                        </p>
                     </form>
                 </section>
             </main>

@@ -1,10 +1,10 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button } from "@mui/material";
 import { useForm } from "react-hook-form";
+import { LuChevronLeft } from "react-icons/lu";
+import { NavLink } from "react-router-dom";
 import * as yup from "yup";
 import womanImage from "../../../src/assets/foto-mulher-jovem.svg";
-import { NavLink } from "react-router-dom";
-import { ChevronLeft } from "lucide-react";
 
 interface FormInputs {
   email: string;
@@ -41,7 +41,7 @@ export const ForgotPassword = () => {
         <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md">
           <div className="flex flex-col gap-1">
             <NavLink to="/login" className="self-start mb-4 flex items-center">
-              <ChevronLeft className="mr-1" />
+              <LuChevronLeft />
               <span className="cursor-pointer text-base">Voltar</span>
             </NavLink>
             <h1 className="font-extrabold text-3xl ">Esqueceu sua Senha?</h1>

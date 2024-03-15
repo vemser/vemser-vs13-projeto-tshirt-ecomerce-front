@@ -4,7 +4,7 @@ import Header from "../components/Header/Header";
 
 function DefaultLayout() {
   return (
-    <main className="w-full h-screen flex flex-col">
+    <main className="w-full min-h-screen flex flex-col">
       <Header />
       <section className="container py-7 mx-auto flex-1">
         <Outlet />

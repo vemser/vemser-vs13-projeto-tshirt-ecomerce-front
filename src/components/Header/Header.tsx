@@ -5,6 +5,7 @@ import { FiHeart, FiSearch, FiShoppingCart } from "react-icons/fi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../Logo/Logo";
+import DropdownCart from "../DropdownCart/DropdownCart";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -96,7 +97,14 @@ const Header = () => {
             <FiHeart size={24} />
           </div>
           <div className="p-3 rounded-full hover:bg-gray-100 transition-colors cursor-pointer">
-            <FiShoppingCart size={24} />
+            <FiShoppingCart
+              size={24}
+              onClick={() => {
+                const dropdown = document.getElementById("dropdownDelay");
+                dropdown.classList.toggle("hidden");
+              }}
+            />
+            <DropdownCart />
           </div>
 
           <button

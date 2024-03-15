@@ -99,7 +99,10 @@ const Header = () => {
           <div className="p-3 rounded-full hover:bg-gray-100 transition-colors cursor-pointer">
             <LuHeart size={24} />
           </div>
-          <div className="p-3 rounded-full hover:bg-gray-100 transition-colors cursor-pointer">
+          <div
+            className="p-3 rounded-full hover:bg-gray-100 transition-colors cursor-pointer"
+            id="cart"
+          >
             <LuShoppingCart
               size={24}
               onClick={() => {

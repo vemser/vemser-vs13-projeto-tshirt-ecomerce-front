@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 const producstList = [
@@ -20,12 +20,31 @@ const producstList = [
 
 const DropdownCart = () => {
   const navigate = useNavigate();
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
+      const dropdown = document.getElementById("dropdownDelay");
+      dropdown?.classList.add("hidden");
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
       <div
         id="dropdownDelay"
         className="z-10 hidden absolute bg-white divide-y divide-gray-100 rounded-lg shadow  w-52 md:w-72 top-16 right-0 md:right-16 mt-4"
+        ref={dropdownRef}
       >
         <div className="flex flex-col gap-4 p-4">
           {producstList.map((product, index) => (

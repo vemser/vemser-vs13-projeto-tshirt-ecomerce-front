@@ -54,6 +54,20 @@ const tShirtsList = [
   {
     title: "705 Seven Zero Five - T-Shirt",
     description: "Printed Cotton T-Shirt",
+    price: 119.99,
+    percentageDiscount: 10,
+    img: tShirt1,
+  },
+  {
+    title: "705 Seven Zero Five - T-Shirt",
+    description: "Printed Cotton T-Shirt",
+    price: 119.99,
+    percentageDiscount: 10,
+    img: tShirt1,
+  },
+  {
+    title: "705 Seven Zero Five - T-Shirt",
+    description: "Printed Cotton T-Shirt",
     price: 239.99,
     percentageDiscount: 10,
     img: tShirt2,
@@ -154,37 +168,50 @@ const Home = () => {
             Ver mais
           </button>
         </div>
-        <div className="mt-10 text-lg">
-          <Swiper spaceBetween={20} slidesPerView={4.2} className="overflow-x-hidden flex">
-            {tShirtsList.map((tShirt, index) => (
-              <SwiperSlide key={index}>
-                <div className="flex flex-col gap-3 max-w-80 cursor-pointer">
-                  <img
-                    src={tShirt.img}
-                    alt="Modelo de camiseta iShirts"
-                    className="border border-tertiary border-opacity-30 rounded-xl"
-                  />
-                  <div>
-                    <strong>{tShirt.title}</strong>
-                    <p>{tShirt.description}</p>
-                    <div className="flex gap-4 mt-3">
-                      <strong className="font-medium">
-                        R$
-                        {(
-                          tShirt.price -
-                          (tShirt.price * tShirt.percentageDiscount) / 100
-                        ).toFixed(2)}
-                      </strong>
-                      <p className="text-tertiary line-through">
-                        R${tShirt.price.toFixed(2)}
-                      </p>{" "}
-                    </div>
+        <Swiper
+          spaceBetween={20}
+          slidesPerView={1.2}
+          breakpoints={{
+            480: {
+              slidesPerView: 2.2,
+            },
+            768: {
+              slidesPerView: 3.2,
+            },
+            1024: {
+              slidesPerView: 4.2,
+            }
+          }}
+          className="overflow-x-hidden flex flex-wrap mt-10 text-lg"
+        >
+          {tShirtsList.map((tShirt, index) => (
+            <SwiperSlide key={index} className="flex justify-center sm:justify-start">
+              <div className="flex flex-col gap-3 w-80 cursor-pointer">
+                <img
+                  src={tShirt.img}
+                  alt="..."
+                  className="border-tertiary border-opacity-10 rounded-xl"
+                />
+                <div>
+                  <strong>{tShirt.title}</strong>
+                  <p>{tShirt.description}</p>
+                  <div className="flex gap-4 mt-3">
+                    <strong className="font-medium">
+                      R$
+                      {(
+                        tShirt.price -
+                        (tShirt.price * tShirt.percentageDiscount) / 100
+                      ).toFixed(2)}
+                    </strong>
+                    <p className="text-tertiary line-through">
+                      R${tShirt.price.toFixed(2)}
+                    </p>
                   </div>
                 </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </section>
 
       <section id="feedbacks" className="px-4 mt-24">

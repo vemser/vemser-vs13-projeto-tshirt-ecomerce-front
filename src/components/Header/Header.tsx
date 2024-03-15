@@ -102,13 +102,11 @@ const Header = () => {
           <div
             className="p-3 rounded-full hover:bg-gray-100 transition-colors cursor-pointer"
             id="cart"
+            onClick={() => {
+              toggleDropdownCart();
+            }}
           >
-            <LuShoppingCart
-              size={24}
-              onClick={() => {
-                toggleDropdownCart();
-              }}
-            />
+            <LuShoppingCart id="cartIcon" size={24} />
           </div>
           <DropdownCart />
 

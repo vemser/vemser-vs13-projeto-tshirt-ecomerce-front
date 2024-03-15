@@ -23,9 +23,14 @@ const DropdownCart = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = (event: MouseEvent) => {
+    const cartDiv = document.getElementById("cart");
+    const cartIcon = document.getElementById("cartIcon");
+
     if (
       dropdownRef.current &&
-      !dropdownRef.current.contains(event.target as Node)
+      !dropdownRef.current.contains(event.target as Node) &&
+      event.target !== cartIcon &&
+      event.target !== cartDiv
     ) {
       const dropdown = document.getElementById("dropdownDelay");
       dropdown?.classList.add("hidden");

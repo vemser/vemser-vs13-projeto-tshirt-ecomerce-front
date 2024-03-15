@@ -24,7 +24,7 @@ const DropdownCart = () => {
     <>
       <div
         id="dropdownDelay"
-        className="z-10 hidden absolute bg-white divide-y divide-gray-100 rounded-lg shadow  w-80 md:w-80 top-16 right-0 md:right-16"
+        className="z-10 hidden absolute bg-white divide-y divide-gray-100 rounded-lg shadow  w-52 md:w-72 top-16 right-0 md:right-16 mt-4"
       >
         <div className="flex flex-col gap-4 p-4">
           {producstList.map((product, index) => (

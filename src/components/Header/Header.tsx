@@ -1,8 +1,6 @@
 import { Box, Drawer } from "@mui/material";
 import { useState } from "react";
-import { CgClose } from "react-icons/cg";
-import { FiHeart, FiSearch, FiShoppingCart } from "react-icons/fi";
-import { RxHamburgerMenu } from "react-icons/rx";
+import { LuHeart, LuSearch, LuShoppingCart, LuMenu, LuX } from "react-icons/lu";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import DropdownCart from "../DropdownCart/DropdownCart";
@@ -13,6 +11,11 @@ const Header = () => {
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
+  };
+
+  const toggleDropdownCart = () => {
+    const dropdown = document.getElementById("dropdownDelay");
+    dropdown?.classList.toggle("hidden");
   };
 
   const drawer = (
@@ -35,7 +38,7 @@ const Header = () => {
       <Box className="bg-primary h-full text-center py-8 px-10">
         <div className="flex justify-between items-center">
           <Logo color="secondary" />
-          <CgClose
+          <LuX
             onClick={() => setMobileOpen(false)}
             size={32}
             color="white"
@@ -91,30 +94,36 @@ const Header = () => {
 
         <div className="flex gap-1 items-center">
           <div className="p-3 rounded-full hover:bg-gray-100 transition-colors cursor-pointer">
-            <FiSearch size={24} />
+            <LuSearch size={24} />
           </div>
           <div className="p-3 rounded-full hover:bg-gray-100 transition-colors cursor-pointer">
-            <FiHeart size={24} />
+            <LuHeart size={24} />
           </div>
           <div className="p-3 rounded-full hover:bg-gray-100 transition-colors cursor-pointer">
-            <FiShoppingCart
+            <LuShoppingCart
               size={24}
               onClick={() => {
-                const dropdown = document.getElementById("dropdownDelay");
-                dropdown.classList.toggle("hidden");
+                toggleDropdownCart();
               }}
             />
-            <DropdownCart />
           </div>
+          <DropdownCart />
 
           <button
             onClick={() => navigate("/login")}
-            className="hidden md:block bg-black text-secondary font-medium px-9 py-3 rounded-lg transition-opacity hover:opacity-80 ml-5"
+            className="hidden md:block border-2 border-transparent bg-black text-secondary font-medium px-4 lg:px-9 py-2 rounded-lg transition-opacity hover:opacity-80 ml-5"
           >
             Login
           </button>
+
+          <button
+            onClick={() => navigate("/register")}
+            className="hidden box-border md:block border-2 border-primary bg-transparent text-primary font-medium px-4 lg:px-9 py-2  rounded-lg transition-colors hover:bg-primary hover:text-white ml-5"
+          >
+            Cadastrar
+          </button>
           <div className="block md:hidden ml-2 p-3 rounded-full cursor-pointer hover:bg-gray-100 transition-colors">
-            <RxHamburgerMenu onClick={handleDrawerToggle} size={26} />
+            <LuMenu onClick={handleDrawerToggle} size={26} />
           </div>
         </div>
       </nav>

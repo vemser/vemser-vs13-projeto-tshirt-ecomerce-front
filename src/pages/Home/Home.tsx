@@ -2,6 +2,57 @@ import hero from "../../assets/hero.webp";
 import womanCategory from "../../assets/category-woman.png";
 import manCategory from "../../assets/category-man.png";
 import casualCategory from "../../assets/category-casual.png";
+import tShirt1 from "../../assets/t-shirt-1.png";
+import tShirt2 from "../../assets/t-shirt-2.png";
+import tShirt3 from "../../assets/t-shirt-3.png";
+import tShirt4 from "../../assets/t-shirt-4.png";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+
+const tShirtsList = [
+  {
+    title: "705 Seven Zero Five - T-Shirt",
+    description: "Printed Cotton T-Shirt",
+    price: 42.0,
+    percentageDiscount: 10,
+    img: tShirt1,
+  },
+  {
+    title: "705 Seven Zero Five",
+    description: "Printed Cotton T-Shirt",
+    price: 129.99,
+    percentageDiscount: 20,
+    img: tShirt2,
+  },
+  {
+    title: "705 California",
+    description: "Printed Cotton T-Shirt",
+    price: 349.99,
+    percentageDiscount: 10,
+    img: tShirt3,
+  },
+  {
+    title: "Refined Granite Computer",
+    description: "Printed Cotton T-Shirt",
+    price: 98.0,
+    percentageDiscount: 5,
+    img: tShirt4,
+  },
+  {
+    title: "705 Seven Zero Five - T-Shirt",
+    description: "Printed Cotton T-Shirt",
+    price: 119.99,
+    percentageDiscount: 10,
+    img: tShirt1,
+  },
+  {
+    title: "705 Seven Zero Five - T-Shirt",
+    description: "Printed Cotton T-Shirt",
+    price: 239.99,
+    percentageDiscount: 10,
+    img: tShirt2,
+  },
+];
 
 const Home = () => {
   return (
@@ -22,7 +73,9 @@ const Home = () => {
 
       <section id="shop-by-categories" className="px-4">
         <div className="flex justify-between items-center gap-2">
-          <h2 className="font-bold text-2xl md:text-4xl sm:text-3xl">Comprar por categoria</h2>
+          <h2 className="font-bold text-2xl md:text-4xl sm:text-3xl">
+            Comprar por categoria
+          </h2>
           <button className="bg-primary text-sm text-secondary w-36 py-2.5 rounded-lg transition hover:opacity-90 hover:underline">
             Ver todas
           </button>
@@ -30,22 +83,70 @@ const Home = () => {
         <div className="flex gap-6 2xl:gap-10 mt-10 justify-center flex-wrap md:justify-between md:flex-nowrap">
           <div
             style={{ backgroundImage: `url(${womanCategory})` }}
-            className="bg-no-repeat bg-top  2xl:flex-1 2xl:bg-cover w-96 h-96 flex items-end justify-center rounded-xl"
+            className="bg-no-repeat bg-top 2xl:flex-1 2xl:bg-cover w-96 h-96 flex items-end justify-center rounded-xl"
           >
-            <button className="w-11/12 bg-white font-medium py-3 rounded-lg mb-3 transition-colors hover:bg-primary hover:text-white">Feminino</button>
+            <button className="w-11/12 bg-white font-medium py-3 rounded-lg mb-3 transition-colors hover:bg-primary hover:text-white">
+              Feminino
+            </button>
           </div>
           <div
             style={{ backgroundImage: `url(${manCategory})` }}
-            className="bg-no-repeat bg-top  2xl:flex-1 2xl:bg-cover w-96 h-96 flex items-end justify-center rounded-xl"
+            className="bg-no-repeat bg-top 2xl:flex-1 2xl:bg-cover w-96 h-96 flex items-end justify-center rounded-xl"
           >
-            <button className="w-11/12 bg-white font-medium py-3 rounded-lg mb-3 transition-colors hover:bg-primary hover:text-white">Masculino</button>
+            <button className="w-11/12 bg-white font-medium py-3 rounded-lg mb-3 transition-colors hover:bg-primary hover:text-white">
+              Masculino
+            </button>
           </div>
           <div
             style={{ backgroundImage: `url(${casualCategory})` }}
             className="bg-no-repeat bg-top 2xl:flex-1 2xl:bg-cover w-96 h-96 flex items-end justify-center rounded-xl"
           >
-            <button className="w-11/12 bg-white font-medium py-3 rounded-lg mb-3 transition-colors hover:bg-primary hover:text-white">Casual</button>
+            <button className="w-11/12 bg-white font-medium py-3 rounded-lg mb-3 transition-colors hover:bg-primary hover:text-white">
+              Casual
+            </button>
           </div>
+        </div>
+      </section>
+
+      <section id="best-sellers" className="px-4 mt-24">
+        <div className="flex justify-between items-center gap-2">
+          <h2 className="font-bold text-2xl md:text-4xl sm:text-3xl">
+            Mais vendidos
+          </h2>
+          <button className="bg-primary text-sm text-secondary w-36 py-2.5 rounded-lg transition hover:opacity-90 hover:underline">
+            Ver mais
+          </button>
+        </div>
+        <div className="mt-10 text-lg">
+          <Swiper spaceBetween={20} slidesPerView={4} className="overflow-x-hidden flex">
+            {tShirtsList.map((tShirt, index) => (
+              <SwiperSlide key={index}>
+                <div className="flex flex-col gap-3 max-w-80 cursor-pointer">
+                  <img
+                    src={tShirt.img}
+                    alt="..."
+                    className="border border-tertiary border-opacity-30 rounded-xl"
+                  />
+                  <div>
+                    <strong>{tShirt.title}</strong>
+                    <p>{tShirt.description}</p>
+                    <div className="flex gap-4 mt-3">
+                      <strong className="font-medium">
+                        R$
+                        {(
+                          tShirt.price -
+                          (tShirt.price * tShirt.percentageDiscount) / 100
+                        ).toFixed(2)}
+                      </strong>
+                      <p className="text-tertiary line-through">
+                        R${tShirt.price.toFixed(2)}
+                      </p>{" "}
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </section>
     </>

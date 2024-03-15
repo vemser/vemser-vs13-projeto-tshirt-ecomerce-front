@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Catalog from "../pages/catalog/Catalog";
 import DefaultLayout from "../layout/DefaultLayout";
 import Checkout from "../pages/Checkout/Checkout";
 import { NotFound } from "../pages/NotFound/NotFound";
@@ -14,6 +15,7 @@ export default function Router() {
         <Route element={<DefaultLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/catalog" element={<Catalog />} />
         </Route>
         
         <Route path="*" element={<NotFound />} />

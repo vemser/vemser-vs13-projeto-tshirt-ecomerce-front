@@ -3,6 +3,8 @@ import womanImage from '../../assets/foto-mulher-jovem.svg'
 
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from '../../schemas/RegisterSchemas';
+import { Link, NavLink } from 'react-router-dom';
+import { LuChevronLeft } from "react-icons/lu";
 
 export function Register(): JSX.Element {
 
@@ -23,8 +25,13 @@ export function Register(): JSX.Element {
                 </figure>
 
                 <section className="md:w-2/4 w-full flex flex-col h-screen p-4 justify-center items-center">
-                
+
                     <form onSubmit={handleSubmit(makeRegister)} className="flex flex-col w-full max-w-sm">
+
+                        <NavLink to="/" className="self-start mb-4 flex items-center">
+                            <LuChevronLeft className="mr-1" />
+                            <span className="cursor-pointer text-base">Voltar</span>
+                        </NavLink>
 
                         <div className="flex flex-col gap-1">
                             <h1 className="text-3xl font-bold">Crie sua conta </h1>
@@ -38,7 +45,7 @@ export function Register(): JSX.Element {
                                 type="text"
                                 id="name"
                                 placeholder="Nome..."
-                                { ...register('name') }
+                                {...register('name')}
                             />
                             {errors.name && (<span>{errors.name.message}</span>)}
                         </div>
@@ -50,7 +57,7 @@ export function Register(): JSX.Element {
                                 type="email"
                                 id="email"
                                 placeholder="E-mail..."
-                                { ...register('email') }
+                                {...register('email')}
                             />
                             {errors.email && (<span>{errors.email.message}</span>)}
                         </div>
@@ -62,7 +69,7 @@ export function Register(): JSX.Element {
                                 type="password"
                                 id="password"
                                 placeholder="Senha..."
-                                { ...register('password') }
+                                {...register('password')}
                             />
                             {errors.password && (<span>{errors.password.message}</span>)}
                         </div>
@@ -70,6 +77,11 @@ export function Register(): JSX.Element {
                         <button className="bg-primary h-14 text-secondary rounded-xl my-4">
                             Cadastrar
                         </button>
+
+                        <p className='text-gray-400 text-center flex justify-center gap-1'>
+                            <span>Já tem uma conta?</span>
+                            <Link className='text-primary' to={'/login'}>Faça login aqui</Link>
+                        </p>
                     </form>
                 </section>
             </main>

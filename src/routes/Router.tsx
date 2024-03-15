@@ -7,6 +7,7 @@ import Checkout from "../pages/Checkout/Checkout";
 import { NotFound } from "../pages/NotFound/NotFound";
 import { Register } from "../pages/Register/Register";
 import { Login } from "../pages/login/Login";
+import { ForgotPassword } from "../pages/ForgotPassword/ForgotPassword";
 
 export default function Router() {
   return (
@@ -20,6 +21,8 @@ export default function Router() {
 
         <Route path="*" element={<NotFound />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/recover-password" element={<ForgotPassword />} />
         <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>

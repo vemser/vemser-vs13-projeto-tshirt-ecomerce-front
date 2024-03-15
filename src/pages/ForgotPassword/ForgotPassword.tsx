@@ -8,15 +8,13 @@ import { ChevronLeft } from "lucide-react";
 
 interface FormInputs {
   email: string;
-  password: string;
 }
 
 const schema = yup.object().shape({
   email: yup.string().required("Email é obrigatório"),
-  password: yup.string().required("Senha é obrigatória"),
 });
 
-export const Login = () => {
+export const ForgotPassword = () => {
   const {
     register,
     handleSubmit,
@@ -42,13 +40,14 @@ export const Login = () => {
       <section className="w-full md:w-2/4 flex flex-col h-screen p-4 justify-center items-center">
         <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md">
           <div className="flex flex-col gap-1">
-          <NavLink to="/" className="self-start mb-4 flex items-center">
+            <NavLink to="/login" className="self-start mb-4 flex items-center">
               <ChevronLeft className="mr-1" />
               <span className="cursor-pointer text-base">Voltar</span>
             </NavLink>
-            <h1 className="text-3xl font-bold">Bem vindo</h1>
+            <h1 className="font-extrabold text-3xl ">Esqueceu sua Senha?</h1>
             <p className="text-base text-gray-400 mb-7">
-              Por favor, insira suas credenciais
+              Digite o endereço de email cadastrado.{" "}
+              <u>Enviaremos um código para redefinir a sua senha.</u>
             </p>
           </div>
 
@@ -61,35 +60,12 @@ export const Login = () => {
               type="email"
               name="email"
               placeholder="exemplo@email.com"
-              className="w-full px-3 py-2 border-black border rounded-md"
+              className="w-full px-3 py-2 border-black border rounded-md mb-7"
             />
             {errors.email && (
               <p className="text-red-500">{errors.email.message}</p>
             )}
           </div>
-
-          <div className="mb-4">
-            <label htmlFor="password" className="block">
-              Senha
-            </label>
-            <input
-              {...register("password")}
-              type="password"
-              name="password"
-              placeholder="Digite sua senha"
-              className="w-full px-3 py-2 border-black border rounded-md"
-            />
-            {errors.password && (
-              <p className="text-red-500">{errors.password.message}</p>
-            )}
-          </div>
-
-          <NavLink
-            to="/recover-password"
-            className="mb-8 text-right cursor-pointer"
-          >
-            <p className="mb-8 text-right cursor-pointer">Esqueceu a senha?</p>
-          </NavLink>
 
           <Button
             type="submit"
@@ -101,15 +77,9 @@ export const Login = () => {
               borderRadius: "10px",
             }}
           >
-            Login
+            Enviar
           </Button>
         </form>
-        <div className="flex justify-end mt-7 items-center ">
-          <p className="text-base text-gray-400">Não tem uma conta?</p>
-          <NavLink to="/register" className="self-start flex items-center ml-1">
-            Cadastre-se agora
-          </NavLink>
-        </div>
       </section>
     </main>
   );

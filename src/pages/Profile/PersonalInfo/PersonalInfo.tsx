@@ -8,8 +8,8 @@ const PersonalInfo = () => {
 
       <section className="flex gap-8 my-8">
         <ProfileNavbar />
-        <section className="flex-1">
-          <div className="flex justify-between items-center">
+        <section className="flex-auto">
+          <div className="flex justify-between items-center ">
             <div className="relative">
               <img
                 src="https://via.placeholder.com/150"
@@ -41,7 +41,7 @@ const PersonalInfo = () => {
               />
             </div>
 
-            <div className="flex gap-4 my-6">
+            <div className="md:flex gap-4 my-6">
               <div className="w-full">
                 <label htmlFor="email" className="text-primary">
                   E-mail
@@ -53,7 +53,7 @@ const PersonalInfo = () => {
                 />
               </div>
 
-              <div className="w-full">
+              <div className="w-full my-6 md:my-0">
                 <label htmlFor="phone" className="text-primary ">
                   Telefone
                 </label>
@@ -65,7 +65,7 @@ const PersonalInfo = () => {
               </div>
             </div>
 
-            <div className="flex gap-4 my-6">
+            <div className="md:flex gap-4 my-6 ">
               <div className="w-full">
                 <label htmlFor="birthdate" className="text-primary ">
                   Data de Nascimento
@@ -76,7 +76,7 @@ const PersonalInfo = () => {
                   className="w-full border border-primary p-3 rounded-lg"
                 />
               </div>
-              <div className="w-full">
+              <div className="w-full my-6 md:my-0">
                 <label htmlFor="cpf" className="text-primary">
                   CPF
                 </label>

@@ -11,7 +11,7 @@ import { NavLink } from "react-router-dom";
 
 const ProfileNavbar = () => {
   return (
-    <nav className="flex flex-col shadow w-48 md:w-64">
+    <nav className="flex flex-col shadow md:w-64">
       <div className="flex items-center gap-4 border-b p-4">
         <img
           src="

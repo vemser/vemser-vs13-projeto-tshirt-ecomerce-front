@@ -11,7 +11,7 @@ import { NavLink } from "react-router-dom";
 
 const ProfileNavbar = () => {
   return (
-    <nav className="flex flex-col justify-between shadow w-64">
+    <nav className="flex flex-col shadow w-48 md:w-64">
       <div className="flex items-center gap-4 border-b p-4">
         <img
           src="
@@ -26,7 +26,7 @@ const ProfileNavbar = () => {
           <h1 className="text-lg font-bold">John Doe</h1>
         </div>
       </div>
-      <div className="flex flex-col my-4 ">
+      <div className="flex flex-col my-4">
         <NavLink
           to="/profile/personal-info"
           className={({ isActive }) =>

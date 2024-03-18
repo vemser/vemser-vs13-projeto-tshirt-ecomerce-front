@@ -7,7 +7,6 @@ import { Register } from "../pages/Register/Register";
 import { Login } from "../pages/login/Login";
 import Home from "../pages/Home/Home";
 import { ForgotPassword } from "../pages/ForgotPassword/ForgotPassword";
-import ProfileLayout from "../layout/ProfileLayout";
 import PersonalInfo from "../pages/Profile/PersonalInfo/PersonalInfo";
 
 export default function Router() {
@@ -20,9 +19,19 @@ export default function Router() {
           <Route path="/catalog" element={<Catalog />} />
 
           {/* Profile */}
-          <Route element={<ProfileLayout />}>
-            <Route path="/profile/personal-info" element={<PersonalInfo />} />
-          </Route>
+          <Route path="/profile/personal-info" element={<PersonalInfo />} />
+          <Route path="/profile/orders" element={<div>Pedidos</div>} />
+          <Route path="/profile/favorites" element={<div>Favoritos</div>} />
+          <Route path="/profile/addresses" element={<div>Endereços</div>} />
+          <Route
+            path="/profile/payment-methods"
+            element={<div>Meios de Pagamento</div>}
+          />
+          <Route
+            path="/profile/notifications"
+            element={<div>Notificações</div>}
+          />
+          <Route path="/profile/settings" element={<div>Configurações</div>} />
         </Route>
 
         <Route path="*" element={<NotFound />} />

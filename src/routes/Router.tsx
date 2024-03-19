@@ -8,6 +8,7 @@ import { Login } from "../pages/login/Login";
 import Home from "../pages/Home/Home";
 import { ForgotPassword } from "../pages/ForgotPassword/ForgotPassword";
 import PersonalInfo from "../pages/Profile/PersonalInfo/PersonalInfo";
+import ReviewYourOrder from "../pages/ReviewYourOrder/ReviewYourOrder";
 
 export default function Router() {
   return (
@@ -17,6 +18,7 @@ export default function Router() {
           <Route path="/" element={<Home />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/catalog" element={<Catalog />} />
+          <Route path="/review-your-order" element={<ReviewYourOrder />} />
 
           {/* Profile */}
           <Route path="/profile/personal-info" element={<PersonalInfo />} />

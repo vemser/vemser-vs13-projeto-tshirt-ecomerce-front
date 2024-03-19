@@ -189,8 +189,13 @@ function Product() {
           onChange={handleTabChange}
           variant="scrollable"
           allowScrollButtonsMobile
-          scrollButtons
+          scrollButtons="auto"
           aria-label="basic tabs example"
+          sx={{
+            ".MuiTabs-indicator": {
+              backgroundColor: "#121212",
+            },
+          }}
         >
           <Tab
             sx={{
@@ -198,7 +203,6 @@ function Product() {
               "&.Mui-selected": {
                 fontWeight: "bold",
                 color: "black",
-                borderColor: "black",
               },
             }}
             label="Descrição"
@@ -209,7 +213,6 @@ function Product() {
               "&.Mui-selected": {
                 fontWeight: "bold",
                 color: "black",
-                borderColor: "black",
               },
             }}
             label="Informação Adicional"
@@ -220,7 +223,6 @@ function Product() {
               "&.Mui-selected": {
                 fontWeight: "bold",
                 color: "black",
-                borderColor: "black",
               },
             }}
             label="Avaliações"

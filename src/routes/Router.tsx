@@ -9,6 +9,7 @@ import PersonalInfo from "../pages/Profile/PersonalInfo/PersonalInfo";
 import { Register } from "../pages/Register/Register";
 import Catalog from "../pages/catalog/Catalog";
 import { Login } from "../pages/login/Login";
+import ReviewYourOrder from "../pages/ReviewYourOrder/ReviewYourOrder";
 
 export default function Router() {
   return (
@@ -18,6 +19,7 @@ export default function Router() {
           <Route path="/" element={<Home />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/catalog" element={<Catalog />} />
+          <Route path="/review-your-order" element={<ReviewYourOrder />} />
           <Route path="/product" element={<Product />} />
 
           {/* Profile */}

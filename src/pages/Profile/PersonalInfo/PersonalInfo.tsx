@@ -1,18 +1,55 @@
-import { LuPencil } from "react-icons/lu";
+import { LuEye, LuEyeOff, LuPencil } from "react-icons/lu";
 import ProfileNavbar from "../../../components/ProfileNavbar/ProfileNavbar";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { IProfile } from "../../../types/Profile";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { profileSchema } from "../../../schemas/ProfileSchema";
+import { useState } from "react";
+
+const fakeUser = {
+  name: "John Doe",
+  email: "johndoe@gmail.com",
+  phone: "123456789",
+  birthdate: "1990-01-01",
+  cpf: "123456789",
+  password: "123456",
+  profilePicture: "https://via.placeholder.com/150",
+};
 
 const PersonalInfo = () => {
+  const [editProfile, setEditProfile] = useState(false);
+  const [type, setType] = useState("password");
+
+  const {
+    register,
+    handleSubmit,
+
+    formState: { errors },
+  } = useForm<IProfile>({ resolver: yupResolver(profileSchema) });
+
+  const onSubmit: SubmitHandler<IProfile> = (data) => {
+    console.log(data);
+  };
+
+  const handleEditProfile = () => {
+    setEditProfile(!editProfile);
+  };
+
+  const handleToggle = () => {
+    setType(type === "text" ? "password" : "text");
+  };
+
   return (
     <main className="md:px-36 md:py-12 p-6">
       <h2 className="text-primary text-4xl">Meu Perfil</h2>
 
-      <section className="flex gap-8 my-8">
+      <section className="sm:flex gap-8 my-8">
         <ProfileNavbar />
-        <section className="flex-auto">
+        <section className="flex-auto my-4 md:my-0">
           <div className="flex justify-between items-center ">
             <div className="relative">
               <img
-                src="https://via.placeholder.com/150"
+                src={fakeUser.profilePicture}
                 alt="Profile Picture"
                 className="w-16 h-16 rounded-full"
               />
@@ -24,12 +61,15 @@ const PersonalInfo = () => {
               </button>
             </div>
 
-            <button className=" bg-primary text-white px-6 py-3 rounded-lg flex gap-2 items-center hover:bg-opacity-90">
+            <button
+              className=" bg-primary text-white px-6 py-3 rounded-lg flex gap-2 items-center hover:bg-opacity-90"
+              onClick={handleEditProfile}
+            >
               <LuPencil /> Editar Perfil
             </button>
           </div>
 
-          <form>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="my-6">
               <label htmlFor="name" className="text-primary">
                 Nome
@@ -37,8 +77,14 @@ const PersonalInfo = () => {
               <input
                 type="text"
                 id="name"
-                className="w-full border border-primary p-3 rounded-lg"
+                defaultValue={fakeUser.name}
+                disabled={!editProfile}
+                {...register("name")}
+                className="w-full border border-primary p-3 rounded-lg disabled:opacity-50 invalid:border-red-500  "
               />
+              {errors.name && (
+                <p className="text-red-500">{errors.name.message}</p>
+              )}
             </div>
 
             <div className="md:flex gap-4 my-6">
@@ -49,8 +95,14 @@ const PersonalInfo = () => {
                 <input
                   type="email"
                   id="email"
-                  className="w-full border border-primary p-3 rounded-lg "
+                  defaultValue={fakeUser.email}
+                  disabled={!editProfile}
+                  {...register("email")}
+                  className="w-full border border-primary p-3 rounded-lg disabled:opacity-50 invalid:border-red-500  "
                 />
+                {errors.email && (
+                  <p className="text-red-500">{errors.email.message}</p>
+                )}
               </div>
 
               <div className="w-full my-6 md:my-0">
@@ -60,8 +112,14 @@ const PersonalInfo = () => {
                 <input
                   type="text"
                   id="phone"
-                  className="w-full border border-primary p-3 rounded-lg"
+                  defaultValue={fakeUser.phone}
+                  disabled={!editProfile}
+                  {...register("phone")}
+                  className="w-full border border-primary p-3 rounded-lg disabled:opacity-50 invalid:border-red-500 "
                 />
+                {errors.phone && (
+                  <p className="text-red-500">{errors.phone.message}</p>
+                )}
               </div>
             </div>
 
@@ -73,9 +131,16 @@ const PersonalInfo = () => {
                 <input
                   type="date"
                   id="birthdate"
-                  className="w-full border border-primary p-3 rounded-lg"
+                  defaultValue={fakeUser.birthdate}
+                  disabled={!editProfile}
+                  {...register("birthdate")}
+                  className="w-full border border-primary p-3 rounded-lg disabled:opacity-50 invalid:border-red-500 "
                 />
+                {errors.birthdate && (
+                  <p className="text-red-500">{errors.birthdate.message}</p>
+                )}
               </div>
+
               <div className="w-full my-6 md:my-0">
                 <label htmlFor="cpf" className="text-primary">
                   CPF
@@ -83,8 +148,14 @@ const PersonalInfo = () => {
                 <input
                   type="text"
                   id="cpf"
-                  className="w-full border border-primary p-3 rounded-lg"
+                  defaultValue={fakeUser.cpf}
+                  disabled={!editProfile}
+                  {...register("cpf")}
+                  className="w-full border border-primary p-3 rounded-lg disabled:opacity-50 invalid:border-red-500 "
                 />
+                {errors.cpf && (
+                  <p className="text-red-500">{errors.cpf.message}</p>
+                )}
               </div>
             </div>
 
@@ -92,12 +163,44 @@ const PersonalInfo = () => {
               <label htmlFor="password" className="text-primary">
                 Senha
               </label>
-              <input
-                type="password"
-                id="password"
-                className="w-full border border-primary p-3 rounded-lg"
-              />
+              <div className="relative flex flex-col">
+                <input
+                  type={type}
+                  id="password"
+                  defaultValue={fakeUser.password}
+                  disabled={!editProfile}
+                  {...register("password")}
+                  className="w-full border  border-primary p-3 rounded-lg disabled:opacity-50 invalid:border-red-500 pl-10" // Adicionamos um padding-left para o ícone não ficar em cima do texto
+                />
+                {type === "password" ? (
+                  <LuEye
+                    className="absolute top-3 right-4 cursor-pointer hover:bg-gray-100 rounded-full p-1"
+                    fontSize={24}
+                    aria-label="Mostrar Senha"
+                    onClick={handleToggle}
+                  />
+                ) : (
+                  <LuEyeOff
+                    className="absolute  top-3 right-4 cursor-pointer hover:bg-gray-100 rounded-full p-1"
+                    fontSize={24}
+                    aria-label="Esconder Senha"
+                    onClick={handleToggle}
+                  />
+                )}
+
+                {errors.password && (
+                  <p className="text-red-500">{errors.password.message}</p>
+                )}
+              </div>
             </div>
+            {editProfile && (
+              <button
+                type="submit"
+                className="bg-primary text-white px-6 py-3 rounded-lg flex gap-2 items-center hover:bg-opacity-90"
+              >
+                <LuPencil /> Salvar
+              </button>
+            )}
           </form>
         </section>
       </section>

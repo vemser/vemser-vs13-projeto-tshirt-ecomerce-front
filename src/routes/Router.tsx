@@ -11,6 +11,7 @@ import Catalog from "../pages/catalog/Catalog";
 import { Login } from "../pages/login/Login";
 import ReviewYourOrder from "../pages/ReviewYourOrder/ReviewYourOrder";
 import PaymentsMethod from "../pages/Profile/PaymentsMethod/PaymentsMethod";
+import Notifications from "../pages/Profile/Notifications/Notifications";
 
 export default function Router() {
   return (
@@ -29,10 +30,7 @@ export default function Router() {
           <Route path="/profile/favorites" element={<div>Favoritos</div>} />
           <Route path="/profile/addresses" element={<div>Endereços</div>} />
           <Route path="/profile/payment-methods" element={<PaymentsMethod />} />
-          <Route
-            path="/profile/notifications"
-            element={<div>Notificações</div>}
-          />
+          <Route path="/profile/notifications" element={<Notifications />} />
           <Route path="/profile/settings" element={<div>Configurações</div>} />
         </Route>
 

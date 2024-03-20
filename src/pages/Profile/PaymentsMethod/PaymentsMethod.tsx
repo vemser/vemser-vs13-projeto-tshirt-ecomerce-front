@@ -9,7 +9,7 @@ const PaymentsMethod = () => {
 
   return (
     <main className="md:px-36 md:py-12 p-6">
-      <h2 className="text-primary text-4xl">Métodos de Pagamento</h2>
+      <h2 className="text-primary text-4xl">Meu Perfil</h2>
 
       <section className="sm:flex gap-8 my-8">
         <ProfileNavbar />

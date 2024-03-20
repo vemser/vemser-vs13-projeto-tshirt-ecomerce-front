@@ -10,6 +10,7 @@ import { Register } from "../pages/Register/Register";
 import Catalog from "../pages/catalog/Catalog";
 import { Login } from "../pages/login/Login";
 import ReviewYourOrder from "../pages/ReviewYourOrder/ReviewYourOrder";
+import PaymentsMethod from "../pages/Profile/PaymentsMethod/PaymentsMethod";
 
 export default function Router() {
   return (
@@ -27,10 +28,7 @@ export default function Router() {
           <Route path="/profile/orders" element={<div>Pedidos</div>} />
           <Route path="/profile/favorites" element={<div>Favoritos</div>} />
           <Route path="/profile/addresses" element={<div>Endereços</div>} />
-          <Route
-            path="/profile/payment-methods"
-            element={<div>Meios de Pagamento</div>}
-          />
+          <Route path="/profile/payment-methods" element={<PaymentsMethod />} />
           <Route
             path="/profile/notifications"
             element={<div>Notificações</div>}

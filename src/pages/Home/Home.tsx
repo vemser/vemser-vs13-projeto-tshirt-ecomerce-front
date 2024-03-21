@@ -1,19 +1,20 @@
-import hero from "../../assets/hero.webp";
-import womanCategory from "../../assets/category-woman.png";
-import manCategory from "../../assets/category-man.png";
+import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
+import { useNavigate } from "react-router-dom";
+import "swiper/css";
+import { Swiper, SwiperSlide } from "swiper/react";
 import casualCategory from "../../assets/category-casual.png";
-import tShirt1 from "../../assets/t-shirt-1.png";
-import tShirt2 from "../../assets/t-shirt-2.png";
-import tShirt3 from "../../assets/t-shirt-3.png";
-import tShirt4 from "../../assets/t-shirt-4.png";
+import manCategory from "../../assets/category-man.png";
+import womanCategory from "../../assets/category-woman.png";
+import hero from "../../assets/hero.webp";
 import profile1 from "../../assets/profile1.svg";
 import profile2 from "../../assets/profile2.svg";
 import profile3 from "../../assets/profile3.svg";
 import profile4 from "../../assets/profile4.svg";
 import quotes from "../../assets/quotes.svg";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { LuChevronRight, LuChevronLeft } from 'react-icons/lu';
-import "swiper/css";
+import tShirt1 from "../../assets/t-shirt-1.png";
+import tShirt2 from "../../assets/t-shirt-2.png";
+import tShirt3 from "../../assets/t-shirt-3.png";
+import tShirt4 from "../../assets/t-shirt-4.png";
 
 const tShirtsList = [
   {
@@ -76,49 +77,67 @@ const tShirtsList = [
 
 const feedbacks = [
   {
-    name: 'Georgia Murazik',
-    text: 'Ab amet reprehenderit saepe quia veniam. Voluptas dolore officia sequi aut rerum molestiae iure. Laborum dicta qui praesentium laborum sint.',
-    img: profile2
+    name: "Georgia Murazik",
+    text: "Ab amet reprehenderit saepe quia veniam. Voluptas dolore officia sequi aut rerum molestiae iure. Laborum dicta qui praesentium laborum sint.",
+    img: profile2,
   },
   {
-    name: 'Alison Nikolaus',
-    text: 'Ab amet reprehenderit saepe quia veniam. Voluptas dolore officia sequi aut rerum molestiae iure. Laborum dicta qui praesentium laborum sint.',
-    img: profile3
+    name: "Alison Nikolaus",
+    text: "Ab amet reprehenderit saepe quia veniam. Voluptas dolore officia sequi aut rerum molestiae iure. Laborum dicta qui praesentium laborum sint.",
+    img: profile3,
   },
   {
-    name: 'Camille Ferros',
-    text: 'Ab amet reprehenderit saepe quia veniam. Voluptas dolore officia sequi aut rerum molestiae iure. Laborum dicta qui praesentium laborum sint.',
-    img: profile1
+    name: "Camille Ferros",
+    text: "Ab amet reprehenderit saepe quia veniam. Voluptas dolore officia sequi aut rerum molestiae iure. Laborum dicta qui praesentium laborum sint.",
+    img: profile1,
   },
   {
-    name: 'Rafael Lazzari',
-    text: 'Ab amet reprehenderit saepe quia veniam. Voluptas dolore officia sequi aut rerum molestiae iure. Laborum dicta qui praesentium laborum sint.',
-    img: profile4
-  }
-]
+    name: "Rafael Lazzari",
+    text: "Ab amet reprehenderit saepe quia veniam. Voluptas dolore officia sequi aut rerum molestiae iure. Laborum dicta qui praesentium laborum sint.",
+    img: profile4,
+  },
+];
 
 const Home = () => {
+  const navigate = useNavigate();
+
   const handleScrollLeft = () => {
-    const div = document.getElementById('swiper');
+    const div = document.getElementById("swiper");
     if (div) div.scrollLeft -= 200;
-  }
+  };
   const handleScrollRight = () => {
-    const div = document.getElementById('swiper');
+    const div = document.getElementById("swiper");
     if (div) div.scrollLeft += 200;
-  }
+  };
+
+  const handleViewAll = () => {
+    navigate("/catalog");
+  };
 
   return (
     <>
-      <section id="hero" className="w-full h-[90vh] flex items-center justify-center pt-10 pb-40">
+      <section
+        id="hero"
+        className="w-full h-[90vh] flex items-center justify-center pt-10 pb-40"
+      >
         <div className="w-full max-w-8xl h-full flex items-center justify-around bg-secondary bg-opacity-60 gap-6 px-10 rounded-lg border border-tertiary border-opacity-10">
           <div className="">
             <h1 className="text-6xl font-serif font-bold mb-5">
               Descubra o seu estilo <br /> na iShirts
             </h1>
             <p className="text-3xl font-sans mb-10">Descontos de até 40% OFF</p>
-            <a href="" className="font-sans bg-primary text-white px-5 py-3 rounded-lg">COMPRAR AGORA</a>
+            <a
+              href=""
+              className="font-sans bg-primary text-white px-5 py-3 rounded-lg"
+            >
+              COMPRAR AGORA
+            </a>
           </div>
-          <img src={hero} className="self-end h-5/6" alt="Imagem de uma modelo posando com camiseta preta e chapéu branco" />
+          <img
+            src={hero}
+            className="self-end h-5/6"
+            alt="Imagem de uma modelo posando com camiseta preta e chapéu branco"
+          />
         </div>
       </section>
 
@@ -127,7 +146,10 @@ const Home = () => {
           <h2 className="font-bold text-2xl md:text-4xl sm:text-3xl">
             Comprar por categoria
           </h2>
-          <button className="bg-primary text-sm text-secondary w-36 py-2.5 rounded-lg transition hover:opacity-90 hover:underline">
+          <button
+            onClick={handleViewAll}
+            className="bg-primary text-sm text-secondary w-36 py-2.5 rounded-lg transition hover:opacity-90 hover:underline"
+          >
             Ver todas
           </button>
         </div>
@@ -164,7 +186,10 @@ const Home = () => {
           <h2 className="font-bold text-2xl md:text-4xl sm:text-3xl">
             Mais vendidos
           </h2>
-          <button className="bg-primary text-sm text-secondary w-36 py-2.5 rounded-lg transition hover:opacity-90 hover:underline">
+          <button
+            onClick={handleViewAll}
+            className="bg-primary text-sm text-secondary w-36 py-2.5 rounded-lg transition hover:opacity-90 hover:underline"
+          >
             Ver mais
           </button>
         </div>
@@ -180,12 +205,15 @@ const Home = () => {
             },
             1024: {
               slidesPerView: 4.2,
-            }
+            },
           }}
           className="overflow-x-hidden flex flex-wrap mt-10 text-lg"
         >
           {tShirtsList.map((tShirt, index) => (
-            <SwiperSlide key={index} className="flex justify-center sm:justify-start">
+            <SwiperSlide
+              key={index}
+              className="flex justify-center sm:justify-start"
+            >
               <div className="flex flex-col gap-3 w-80 cursor-pointer">
                 <img
                   src={tShirt.img}
@@ -216,21 +244,43 @@ const Home = () => {
 
       <section id="feedbacks" className="px-4 mt-24">
         <div className="flex justify-between items-center gap-2">
-          <h2 className="font-bold text-2xl md:text-4xl sm:text-3xl">O que nossos clientes dizem</h2>
+          <h2 className="font-bold text-2xl md:text-4xl sm:text-3xl">
+            O que nossos clientes dizem
+          </h2>
           <div className="flex gap-4">
-            <button onClick={handleScrollLeft} className="bg-tertiary text-xl text-center text-secondary font-extrabold p-2 pe-2.5 rounded-lg transition hover:opacity-90"><LuChevronLeft /></button>
-            <button onClick={handleScrollRight} className="bg-primary text-xl text-center text-secondary font-extrabold p-2 pe-2.5 rounded-lg transition hover:opacity-90"><LuChevronRight /></button>
+            <button
+              onClick={handleScrollLeft}
+              className="bg-tertiary text-xl text-center text-secondary font-extrabold p-2 pe-2.5 rounded-lg transition hover:opacity-90"
+            >
+              <LuChevronLeft />
+            </button>
+            <button
+              onClick={handleScrollRight}
+              className="bg-primary text-xl text-center text-secondary font-extrabold p-2 pe-2.5 rounded-lg transition hover:opacity-90"
+            >
+              <LuChevronRight />
+            </button>
           </div>
         </div>
         <div className="mt-10 text-lg">
-          <Swiper id="swiper" spaceBetween={30} slidesPerView={2.5} className="overflow-x-hidden flex mb-20" style={{ scrollBehavior: 'smooth', transition: 'scroll 0.8s' }}>
+          <Swiper
+            id="swiper"
+            spaceBetween={30}
+            slidesPerView={2.5}
+            className="overflow-x-hidden flex mb-20"
+            style={{ scrollBehavior: "smooth", transition: "scroll 0.8s" }}
+          >
             {feedbacks.map((feedback, index) => (
               <SwiperSlide key={index}>
                 <div className="flex flex-col gap-7 p-8 bg-secondary bg-opacity-45 border border-tertiary border-opacity-15 rounded-xl">
                   <img className="w-10" src={quotes} alt="" />
                   <p className="font-medium">{feedback.text}</p>
                   <div className="flex items-center gap-3">
-                    <img className="h-10 w-10 rounded-full" src={feedback.img} alt={`Imagem de usuário de ${feedback.name}`} />
+                    <img
+                      className="h-10 w-10 rounded-full"
+                      src={feedback.img}
+                      alt={`Imagem de usuário de ${feedback.name}`}
+                    />
                     <strong>{feedback.name}</strong>
                   </div>
                 </div>

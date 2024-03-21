@@ -1,18 +1,19 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import DefaultLayout from "../layout/DefaultLayout";
-import ProfileLayout from "../layout/ProfileLayout";
-import Catalog from "../pages/catalog/Catalog";
-import Checkout from "../pages/Checkout/Checkout";
-import { ForgotPassword } from "../pages/ForgotPassword/ForgotPassword";
-import Home from "../pages/Home/Home";
-import { Login } from "../pages/login/Login";
-import { NotFound } from "../pages/NotFound/NotFound";
-import Product from "../pages/Product/Product";
-import Notifications from "../pages/Profile/Notifications/Notifications";
-import PaymentsMethod from "../pages/Profile/PaymentsMethod/PaymentsMethod";
-import PersonalInfo from "../pages/Profile/PersonalInfo/PersonalInfo";
-import { Register } from "../pages/Register/Register";
-import ReviewYourOrder from "../pages/ReviewYourOrder/ReviewYourOrder";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import DefaultLayout from '../layout/DefaultLayout';
+import ProfileLayout from '../layout/ProfileLayout';
+import Catalog from '../pages/catalog/Catalog';
+import Checkout from '../pages/Checkout/Checkout';
+import { ForgotPassword } from '../pages/ForgotPassword/ForgotPassword';
+import Home from '../pages/Home/Home';
+import { Login } from '../pages/login/Login';
+import { NotFound } from '../pages/NotFound/NotFound';
+import Product from '../pages/Product/Product';
+import Notifications from '../pages/Profile/Notifications/Notifications';
+import PaymentsMethod from '../pages/Profile/PaymentsMethod/PaymentsMethod';
+import PersonalInfo from '../pages/Profile/PersonalInfo/PersonalInfo';
+import { Register } from '../pages/Register/Register';
+import ReviewYourOrder from '../pages/ReviewYourOrder/ReviewYourOrder';
+import ClientOrders from '../components/ClientOrders/ClientOrders';
 
 export default function Router() {
   return (
@@ -27,7 +28,7 @@ export default function Router() {
 
           <Route element={<ProfileLayout />}>
             <Route path="/profile/favorites" element={<div>Favoritos</div>} />
-            <Route path="/profile/orders" element={<div>Pedidos</div>} />
+            <Route path="/profile/orders" element={<ClientOrders />} />
           </Route>
           <Route path="/profile/personal-info" element={<PersonalInfo />} />
           <Route path="/profile/addresses" element={<div>Endereços</div>} />

@@ -1,14 +1,8 @@
 import { Drawer, Pagination, PaginationItem } from "@mui/material";
 import { useState } from "react";
-import {
-  LuArrowLeft,
-  LuArrowRight,
-  LuCircleDollarSign,
-  LuCreditCard,
-  LuHeadphones,
-  LuPackage,
-  LuX,
-} from "react-icons/lu";
+import { LuArrowLeft, LuArrowRight, LuX } from "react-icons/lu";
+import { Link } from "react-router-dom";
+import BenefitsCards from "../../components/BenefitsCards/BenefitsCards";
 import ProductCard from "../../components/product-card/ProductCard";
 import ProductMenu from "../../components/product-menu/ProductMenu";
 
@@ -63,7 +57,9 @@ function Catalog() {
           <ul className="flex gap-9 flex-wrap">
             {Array.from({ length: 12 }).map((_, index) => (
               <li key={index}>
-                <ProductCard />
+                <Link to="/product">
+                  <ProductCard />
+                </Link>
               </li>
             ))}
           </ul>
@@ -100,36 +96,7 @@ function Catalog() {
           </div>
         </section>
       </section>
-      <section className="w-full px-6 mb-6 mt-4 flex flex-wrap *:flex-1 gap-4">
-        <div className="min-w-44">
-          <i className="text-4xl">
-            <LuPackage />
-          </i>
-          <p className="font-bold text-lg mt-2">Entrega Grátis</p>
-          <p>Entrega grátis para comprar acima de R$ 150,00</p>
-        </div>
-        <div className="min-w-44">
-          <i className="text-4xl">
-            <LuCircleDollarSign />
-          </i>
-          <p className="font-bold text-lg mt-2">Dinheiro Garantido</p>
-          <p>Dentro de 30 dias para o ter o dinheiro de volta</p>
-        </div>
-        <div className="min-w-44">
-          <i className="text-4xl">
-            <LuHeadphones />
-          </i>
-          <p className="font-bold text-lg mt-2">Suporte Online</p>
-          <p>24 horas por dia, 7 dias na semana</p>
-        </div>
-        <div className="min-w-44">
-          <i className="text-4xl">
-            <LuCreditCard />
-          </i>
-          <p className="font-bold text-lg mt-2">Pagamento Flexível</p>
-          <p>Pague com múltiplos cartões de crédito</p>
-        </div>
-      </section>
+      <BenefitsCards />
     </>
   );
 }

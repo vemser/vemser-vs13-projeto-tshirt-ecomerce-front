@@ -33,17 +33,26 @@ export default function Orders({ order }: { order: Order }) {
       </div>
       <div className="grid gap-4 width-1/5">
         <Link
-          to="/review-your-order"
+          to="#"
           className="hidden box-border md:block border-2 border-primary bg-transparent text-primary font-medium px-4 lg:px-9 py-2  rounded-lg transition-colors hover:bg-primary hover:text-white ml-5"
         >
           Ver pedido
         </Link>
-        <Link
-          to="/catalog"
-          className="hidden md:block border-2 border-transparent bg-black text-secondary font-medium px-4 lg:px-4 py-2 rounded-lg transition-opacity hover:opacity-80 ml-5"
-        >
-          Avalie o produto
-        </Link>
+        {order.status === 'Entregue' ? (
+          <Link
+            to="#"
+            className="hidden md:block border-2 border-transparent bg-black text-secondary font-medium px-4 lg:px-4 py-2 rounded-lg transition-opacity hover:opacity-80 ml-5"
+          >
+            Avalie o produto
+          </Link>
+        ) : order.status === 'Em progresso' ? (
+          <Link
+            to="#"
+            className="hidden md:block border-2 border-transparent bg-red-300 text-red-800 font-medium px-4 lg:px-4 py-2 rounded-lg transition-opacity hover:opacity-80 ml-5"
+          >
+            Cancelar Pedido
+          </Link>
+        ) : null}
       </div>
     </div>
   );

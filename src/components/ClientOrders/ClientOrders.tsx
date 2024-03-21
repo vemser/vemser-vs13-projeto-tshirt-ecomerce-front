@@ -35,7 +35,7 @@ export default function ClientOrders() {
       id: 2,
       date: '10/10/2021',
       total: 200,
-      status: 'Entregue',
+      status: 'Cancelado',
       products: [
         {
           id: 1,
@@ -51,12 +51,32 @@ export default function ClientOrders() {
         },
       ],
     },
+    {
+      id: 3,
+      date: '10/10/2021',
+      total: 300,
+      status: 'Em progresso',
+      products: [
+        {
+          id: 1,
+          name: 'Produto 3',
+          price: 50,
+          quantity: 4,
+        },
+        {
+          id: 2,
+          name: 'Produto 2',
+          price: 50,
+          quantity: 2,
+        },
+      ],
+    },
   ];
 
   return (
     <>
       {ordersClient.map((order: Order) => (
-        <Orders key={order.id} products={order.products} />
+        <Orders key={order.id} order={order} />
       ))}
     </>
   );

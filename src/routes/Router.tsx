@@ -13,6 +13,8 @@ import PaymentsMethod from '../pages/Profile/PaymentsMethod/PaymentsMethod';
 import PersonalInfo from '../pages/Profile/PersonalInfo/PersonalInfo';
 import { Register } from '../pages/Register/Register';
 import ReviewYourOrder from '../pages/ReviewYourOrder/ReviewYourOrder';
+import ManageAddress from '../pages/Profile/ManageAddress/ManageAddress';
+import Wishlist from '../pages/Wishlist/Wishlist';
 import ClientOrders from '../components/ClientOrders/ClientOrders';
 
 export default function Router() {
@@ -27,14 +29,20 @@ export default function Router() {
           <Route path="/product" element={<Product />} />
 
           <Route element={<ProfileLayout />}>
-            <Route path="/profile/favorites" element={<div>Favoritos</div>} />
+            <Route path="/profile/favorites" element={<Wishlist />} />
             <Route path="/profile/orders" element={<ClientOrders />} />
+            <Route path="/profile/personal-info" element={<PersonalInfo />} />
+            <Route
+              path="/profile/payment-methods"
+              element={<PaymentsMethod />}
+            />
+            <Route path="/profile/notifications" element={<Notifications />} />
+            <Route path="/profile/addresses" element={<ManageAddress />} />
+            <Route
+              path="/profile/settings"
+              element={<div>Configurações</div>}
+            />
           </Route>
-          <Route path="/profile/personal-info" element={<PersonalInfo />} />
-          <Route path="/profile/addresses" element={<div>Endereços</div>} />
-          <Route path="/profile/payment-methods" element={<PaymentsMethod />} />
-          <Route path="/profile/notifications" element={<Notifications />} />
-          <Route path="/profile/settings" element={<div>Configurações</div>} />
         </Route>
 
         <Route path="*" element={<NotFound />} />

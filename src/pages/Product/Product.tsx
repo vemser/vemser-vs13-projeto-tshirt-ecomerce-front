@@ -1,7 +1,9 @@
 import { Tab, Tabs } from "@mui/material";
 import { useState } from "react";
-import { LuHeart, LuStar, LuStarHalf } from "react-icons/lu";
+import { LuHeart } from "react-icons/lu";
+import { MdStar, MdStarHalf, MdStarOutline } from "react-icons/md";
 import BenefitsCards from "../../components/BenefitsCards/BenefitsCards";
+import ReviewProductForm from "../../components/Forms/ReviewProductForm/ReviewProductForm";
 import ReviewCard from "../../components/ReviewCard/ReviewCard";
 import ProductCard from "../../components/product-card/ProductCard";
 
@@ -61,11 +63,11 @@ function Product() {
           <h2 className="text-xl">Girls Pink Moana Printed Dress</h2>
           <div className="flex flex-col sm:flex-row gap-2">
             <div className="flex gap-1 items-center">
-              <LuStar size={20} />
-              <LuStar size={20} />
-              <LuStar size={20} />
-              <LuStar size={20} />
-              <LuStarHalf size={20} />
+              <MdStar size={20} />
+              <MdStar size={20} />
+              <MdStar size={20} />
+              <MdStarHalf size={20} />
+              <MdStarOutline size={20} />
             </div>
             <div>
               <span className="mr-2">4.5</span>
@@ -256,8 +258,8 @@ function Product() {
           <ReviewCard />
           <ReviewCard />
           <ReviewCard />
-          <ReviewCard />
-          <ReviewCard />
+          <p className="font-bold mt-4">Faça sua avaliação</p>
+          <ReviewProductForm />
         </CustomTabPanel>
       </section>
       <section className="mt-8 mb-10">

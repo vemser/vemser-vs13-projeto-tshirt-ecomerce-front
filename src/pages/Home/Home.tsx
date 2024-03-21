@@ -14,6 +14,7 @@ import quotes from "../../assets/quotes.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { LuChevronRight, LuChevronLeft } from 'react-icons/lu';
 import "swiper/css";
+import "./Home.css"
 
 const tShirtsList = [
   {
@@ -109,8 +110,8 @@ const Home = () => {
 
   return (
     <>
-      <section id="hero" className="w-full h-[90vh] flex items-center justify-center pt-10 pb-40">
-        <div className="w-full max-w-8xl h-full flex items-center justify-around bg-secondary bg-opacity-60 gap-6 px-10 rounded-lg border border-tertiary border-opacity-10">
+      <section id="hero" className="w-full flex items-center justify-center pt-10 pb-40">
+        <div className="hero-section w-full max-w-8xl h-full flex items-center justify-around bg-secondary bg-opacity-60 gap-6 px-10 rounded-lg border border-tertiary border-opacity-10">
           <div className="">
             <h1 className="text-6xl font-serif font-bold mb-5">
               Descubra o seu estilo <br /> na iShirts
@@ -223,7 +224,20 @@ const Home = () => {
           </div>
         </div>
         <div className="mt-10 text-lg">
-          <Swiper id="swiper" spaceBetween={30} slidesPerView={2.5} className="overflow-x-hidden flex mb-20" style={{ scrollBehavior: 'smooth', transition: 'scroll 0.8s' }}>
+          <Swiper id="swiper" 
+          spaceBetween={30} 
+          slidesPerView={1.2}
+          breakpoints={{
+            480: {
+              slidesPerView: 2.2,
+            },
+            768: {
+              slidesPerView: 3.2,
+            },
+            1024: {
+              slidesPerView: 4.0,
+            }
+          }} className="overflow-x-hidden flex mb-20" style={{ scrollBehavior: 'smooth', transition: 'scroll 0.8s' }}>
             {feedbacks.map((feedback, index) => (
               <SwiperSlide key={index}>
                 <div className="flex flex-col gap-7 p-8 bg-secondary bg-opacity-45 border border-tertiary border-opacity-15 rounded-xl">

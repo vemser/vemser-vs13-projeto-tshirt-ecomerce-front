@@ -28,12 +28,18 @@ export default function Router() {
           <Route element={<ProfileLayout />}>
             <Route path="/profile/favorites" element={<div>Favoritos</div>} />
             <Route path="/profile/orders" element={<div>Pedidos</div>} />
+            <Route path="/profile/personal-info" element={<PersonalInfo />} />
+            <Route
+              path="/profile/payment-methods"
+              element={<PaymentsMethod />}
+            />
+            <Route path="/profile/notifications" element={<Notifications />} />
+            <Route path="/profile/addresses" element={<div>Endereços</div>} />
+            <Route
+              path="/profile/settings"
+              element={<div>Configurações</div>}
+            />
           </Route>
-          <Route path="/profile/personal-info" element={<PersonalInfo />} />
-          <Route path="/profile/addresses" element={<div>Endereços</div>} />
-          <Route path="/profile/payment-methods" element={<PaymentsMethod />} />
-          <Route path="/profile/notifications" element={<Notifications />} />
-          <Route path="/profile/settings" element={<div>Configurações</div>} />
         </Route>
 
         <Route path="*" element={<NotFound />} />

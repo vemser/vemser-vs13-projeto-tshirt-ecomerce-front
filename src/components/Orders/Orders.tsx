@@ -6,10 +6,21 @@ export default function Orders({ order }: { order: Order }) {
   return (
     <div className="width-1/2 flex justify-between items-center border-b-2 border-gray-200 py-4">
       <div className="width-1/2">
-        <h2 className="text-lg font-semibold ps-3">{order.products[0].name}</h2>
-        <p className="text-sm ps-3">Preço: {order.products[0].price}</p>
-        <p className="text-sm ps-3">Quantidade: {order.products[0].quantity}</p>
-        <div className="mt-4">
+        <div className="flex gap-4 items-center">
+          <div>
+            <img src="https://placehold.co/79x79" alt="" />
+          </div>
+          <div>
+            <h2 className="text-lg font-semibold ps-3">
+              {order.products[0].name}
+            </h2>
+            <p className="text-sm ps-3">Preço: {order.products[0].price}</p>
+            <p className="text-sm ps-3">
+              Quantidade: {order.products[0].quantity}
+            </p>
+          </div>
+        </div>
+        <div className="mt-4 flex gap-4 items-center">
           <StatusOrder status={order.status} />
         </div>
       </div>

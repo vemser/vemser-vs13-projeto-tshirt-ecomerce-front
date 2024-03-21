@@ -13,6 +13,7 @@ import PaymentsMethod from "../pages/Profile/PaymentsMethod/PaymentsMethod";
 import PersonalInfo from "../pages/Profile/PersonalInfo/PersonalInfo";
 import { Register } from "../pages/Register/Register";
 import ReviewYourOrder from "../pages/ReviewYourOrder/ReviewYourOrder";
+import ManageAddress from "../pages/Profile/ManageAddress/ManageAddress";
 
 export default function Router() {
   return (
@@ -34,7 +35,7 @@ export default function Router() {
               element={<PaymentsMethod />}
             />
             <Route path="/profile/notifications" element={<Notifications />} />
-            <Route path="/profile/addresses" element={<div>Endereços</div>} />
+            <Route path="/profile/addresses" element={<ManageAddress />} />
             <Route
               path="/profile/settings"
               element={<div>Configurações</div>}

@@ -1,4 +1,4 @@
-import { LuStar } from "react-icons/lu";
+import { MdStar } from "react-icons/md";
 
 function ReviewCard() {
   return (
@@ -12,11 +12,11 @@ function ReviewCard() {
         <div>
           <p>Mark Williams</p>
           <span className="flex">
-            <LuStar size={15} />
-            <LuStar size={15} />
-            <LuStar size={15} />
-            <LuStar size={15} />
-            <LuStar size={15} />
+            <MdStar size={16} />
+            <MdStar size={16} />
+            <MdStar size={16} />
+            <MdStar size={16} />
+            <MdStar size={16} />
           </span>
         </div>
       </div>

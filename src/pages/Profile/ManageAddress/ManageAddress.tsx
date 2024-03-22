@@ -1,5 +1,7 @@
 import { LuPlus } from "react-icons/lu";
 import AddressCard from "../../../components/Profile/AddressCard/AddressCard";
+import AddressFormDialog from "../../../components/Profile/AddressFormDialog/AddressFormDialog";
+import { useState } from "react";
 
 const addresses = [
   {
@@ -20,8 +22,12 @@ const addresses = [
 ];
 
 const ManageAddress = () => {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const HandleAddAddressClick = () => {
-    console.log("Click add Adress");
+    handleOpen();
   };
 
   return (
@@ -32,7 +38,8 @@ const ManageAddress = () => {
       >
         <LuPlus /> Adicionar Endereço
       </button>
-      <div className="">
+      {open && <AddressFormDialog open={open} handleClose={handleClose} />}
+      <div>
         {addresses.map((address, index) => (
           <AddressCard
             key={index}

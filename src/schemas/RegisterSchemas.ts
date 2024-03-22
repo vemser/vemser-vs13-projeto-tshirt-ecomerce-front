@@ -1,16 +1,16 @@
 import * as yup from "yup";
 
 export const schema = yup.object().shape({
-  name: yup
-    .string()
-    .required("Nome é obrigatório")
-    .min(3, "Nome deve ter pelo menos 3 caracteres"),
   email: yup
     .string()
     .required("Email é obrigatório")
     .email("Digite um email válido"),
-  password: yup
+  senha: yup
     .string()
-    .required("Senha é obrigatória")
-    .min(4, "Sua senha deve ter no mínimo 4 carateres"),
+    .required("Obrigatório")
+    .min(8, "A senha deve ter pelo menos 8 caracteres")
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/,
+      "A senha deve conter pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial"
+    ),
 });

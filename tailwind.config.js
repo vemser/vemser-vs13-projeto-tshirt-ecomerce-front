@@ -12,10 +12,11 @@ export default {
         secondary: "#E0E0E0",
         tertiary: "#616161",
         quaternary: "#757575",
+        editGray: "#f6f6f6",
       },
       backgroundImage: {
-        'background': "url('src/assets/Background.png')",
-      }
+        background: "url('src/assets/Background.png')",
+      },
     },
   },
   plugins: [],

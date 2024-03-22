@@ -3,7 +3,7 @@ import ProfileNavbar from "../components/ProfileNavbar/ProfileNavbar";
 
 const ProfileLayout = () => {
   return (
-    <main className="md:px-36 md:py-12 p-6">
+    <main className="md:px-10 md:py-12 p-6">
       <h2 className="text-primary text-4xl">Meu Perfil</h2>
 
       <section className="sm:flex gap-8 my-8">

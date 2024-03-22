@@ -42,13 +42,13 @@ export default function Router() {
                 path="/profile/notifications"
                 element={<Notifications />}
               />
-              <Route path="/profile/addresses" element={<ManageAddress />} />
               <Route
                 path="/profile/settings"
                 element={<div>Configurações</div>}
               />
             </Route>
           </Route>
+          <Route path="/profile/addresses" element={<ManageAddress />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />

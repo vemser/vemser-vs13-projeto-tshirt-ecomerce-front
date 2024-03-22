@@ -10,15 +10,17 @@ import {
 import React from "react";
 import { LuChevronDown } from "react-icons/lu";
 
-export function valueRange(value: number) {
-  return `${value}`;
-}
 
 function ProductMenu() {
   const [value, setValue] = React.useState<number[]>([0, 1000]);
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
+  
+  const valueRange = (value: number) => {
+    return `${value}`;
+  }
 
   const handleChange = (event: Event, newValue: number | number[]) => {
+    event.preventDefault();
     setValue(newValue as number[]);
   };
   return (

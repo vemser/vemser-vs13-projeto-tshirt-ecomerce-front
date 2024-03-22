@@ -3,6 +3,11 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { iAddress } from "../../../types/Address";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { addressSchema } from "../../../schemas/AddressSchema";
+import {
+  useGetEstadosQuery,
+  useGetCidadesQuery,
+} from "../../../services/AddressService";
+import { ChangeEvent, useEffect, useState } from "react";
 
 interface AddressFormDialogProps {
   open: boolean;
@@ -28,6 +33,26 @@ const AddressFormDialog = ({
   handleClose,
   edit,
 }: AddressFormDialogProps) => {
+  const [estados, setEstados] = useState<[]>([]);
+  const [cidades, setCidades] = useState<[]>([]);
+  const [idEstado, setIdEstado] = useState<number>(24);
+  const { data: cidadesData } = useGetCidadesQuery(idEstado);
+  const { data } = useGetEstadosQuery();
+
+  useEffect(() => {
+    if (data) {
+      setEstados(data);
+    }
+    if (cidadesData) {
+      setCidades(cidadesData);
+    }
+  }, []);
+
+  const handleEstadoChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    const selectedIdEstado = Number(event.target.value);
+    setIdEstado(selectedIdEstado);
+  };
+
   const {
     register,
     handleSubmit,
@@ -152,7 +177,15 @@ const AddressFormDialog = ({
                 // defaultValue={fakeUser.name}
                 {...register("estado")}
                 className="w-full border border-primary p-3 rounded-lg disabled:opacity-50 invalid:border-red-500  "
-              ></select>
+                onChange={handleEstadoChange}
+              >
+                {estados &&
+                  estados.map((estado: any) => (
+                    <option key={estado.idEstado} value={estado.sigla}>
+                      {estado.nome}
+                    </option>
+                  ))}
+              </select>
               {errors.estado && (
                 <p className="text-red-500">{errors.estado.message}</p>
               )}
@@ -166,7 +199,14 @@ const AddressFormDialog = ({
                 // defaultValue={fakeUser.name}
                 {...register("cidade")}
                 className="w-full border border-primary p-3 rounded-lg disabled:opacity-50 invalid:border-red-500"
-              ></select>
+              >
+                {cidades &&
+                  cidades.map((cidade: any) => (
+                    <option key={cidade.idCidade} value={cidade.nome}>
+                      {cidade.nome}
+                    </option>
+                  ))}
+              </select>
               {errors.cidade && (
                 <p className="text-red-500">{errors.cidade.message}</p>
               )}

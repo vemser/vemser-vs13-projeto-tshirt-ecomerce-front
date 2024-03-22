@@ -1,10 +1,11 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Button } from "@mui/material";
+import { Alert, Button, Snackbar } from "@mui/material";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import womanImage from "../../../src/assets/foto-mulher-jovem.svg";
 import { NavLink } from "react-router-dom";
 import { LuChevronLeft } from "react-icons/lu";
+import { useEffect, useState } from "react";
 
 interface FormInputs {
   email: string;
@@ -17,6 +18,8 @@ const schema = yup.object().shape({
 });
 
 export const Login = () => {
+  const [open, setOpen] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -27,6 +30,26 @@ export const Login = () => {
 
   const onSubmit = (data: FormInputs) => {
     console.log(data);
+  };
+
+  useEffect(() => {
+    const registerSuccess = localStorage.getItem("registerSuccess");
+
+    if (registerSuccess !== null) {
+      setOpen(true);
+      localStorage.removeItem("registerSuccess");
+    }
+  }, []);
+
+  const handleClose = (
+    event: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
   };
 
   return (
@@ -111,6 +134,16 @@ export const Login = () => {
           </NavLink>
         </div>
       </section>
+      <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
+        <Alert
+          onClose={handleClose}
+          severity="success"
+          variant="filled"
+          sx={{ width: "100%" }}
+        >
+          Cadastro realizado com sucesso!
+        </Alert>
+      </Snackbar>
     </main>
   );
 };

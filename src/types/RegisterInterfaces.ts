@@ -1,5 +1,4 @@
 interface IRegister {
-    name: string;
     email: string;
-    password: string;
+    senha: string;
 }

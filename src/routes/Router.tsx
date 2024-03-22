@@ -1,17 +1,22 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ClientOrders from "../components/ClientOrders/ClientOrders";
 import DefaultLayout from "../layout/DefaultLayout";
+import ProfileLayout from "../layout/ProfileLayout";
+import Catalog from "../pages/catalog/Catalog";
 import Checkout from "../pages/Checkout/Checkout";
 import { ForgotPassword } from "../pages/ForgotPassword/ForgotPassword";
 import Home from "../pages/Home/Home";
+import { Login } from "../pages/login/Login";
 import { NotFound } from "../pages/NotFound/NotFound";
 import Product from "../pages/Product/Product";
+import ManageAddress from "../pages/Profile/ManageAddress/ManageAddress";
+import Notifications from "../pages/Profile/Notifications/Notifications";
+import PaymentsMethod from "../pages/Profile/PaymentsMethod/PaymentsMethod";
 import PersonalInfo from "../pages/Profile/PersonalInfo/PersonalInfo";
 import { Register } from "../pages/Register/Register";
-import Catalog from "../pages/catalog/Catalog";
-import { Login } from "../pages/login/Login";
 import ReviewYourOrder from "../pages/ReviewYourOrder/ReviewYourOrder";
-import PaymentsMethod from "../pages/Profile/PaymentsMethod/PaymentsMethod";
-import Notifications from "../pages/Profile/Notifications/Notifications";
+import Wishlist from "../pages/Wishlist/Wishlist";
+import PrivateRoute from "./PrivateRoute";
 
 export default function Router() {
   return (
@@ -21,17 +26,29 @@ export default function Router() {
           <Route path="/" element={<Home />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/catalog" element={<Catalog />} />
-          <Route path="/review-your-order" element={<ReviewYourOrder />} />
           <Route path="/product" element={<Product />} />
 
-          {/* Profile */}
-          <Route path="/profile/personal-info" element={<PersonalInfo />} />
-          <Route path="/profile/orders" element={<div>Pedidos</div>} />
-          <Route path="/profile/favorites" element={<div>Favoritos</div>} />
-          <Route path="/profile/addresses" element={<div>Endereços</div>} />
-          <Route path="/profile/payment-methods" element={<PaymentsMethod />} />
-          <Route path="/profile/notifications" element={<Notifications />} />
-          <Route path="/profile/settings" element={<div>Configurações</div>} />
+          <Route element={<PrivateRoute />}>
+            <Route path="/review-your-order" element={<ReviewYourOrder />} />
+            <Route element={<ProfileLayout />}>
+              <Route path="/profile/favorites" element={<Wishlist />} />
+              <Route path="/profile/orders" element={<ClientOrders />} />
+              <Route path="/profile/personal-info" element={<PersonalInfo />} />
+              <Route
+                path="/profile/payment-methods"
+                element={<PaymentsMethod />}
+              />
+              <Route
+                path="/profile/notifications"
+                element={<Notifications />}
+              />
+              <Route path="/profile/addresses" element={<ManageAddress />} />
+              <Route
+                path="/profile/settings"
+                element={<div>Configurações</div>}
+              />
+            </Route>
+          </Route>
         </Route>
 
         <Route path="*" element={<NotFound />} />

@@ -1,9 +1,9 @@
 import { Box, Drawer } from "@mui/material";
 import { useState } from "react";
-import { LuHeart, LuSearch, LuShoppingCart, LuMenu, LuX } from "react-icons/lu";
+import { LuHeart, LuMenu, LuSearch, LuShoppingCart, LuX } from "react-icons/lu";
 import { Link, useNavigate } from "react-router-dom";
-import Logo from "../Logo/Logo";
 import DropdownCart from "../DropdownCart/DropdownCart";
+import Logo from "../Logo/Logo";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -85,7 +85,7 @@ const Header = () => {
             <Link to={"/"}>Início</Link>
           </li>
           <li className="text-tertiary cursor-pointer hover:text-black">
-            <Link to={"/produtos"}>Produtos</Link>
+            <Link to={"/catalog"}>Produtos</Link>
           </li>
           <li className="text-tertiary cursor-pointer hover:text-black">
             <Link to={"/depoimentos"}>Depoimentos</Link>

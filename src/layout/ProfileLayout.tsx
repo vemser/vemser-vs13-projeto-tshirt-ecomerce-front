@@ -3,14 +3,16 @@ import ProfileNavbar from "../components/ProfileNavbar/ProfileNavbar";
 
 const ProfileLayout = () => {
   return (
-    <>
-      <section>
-        <Outlet />
-        <div className="md:px-36 p-1">
-          <ProfileNavbar />
-        </div>
+    <main className="md:px-10 md:py-12 p-6">
+      <h2 className="text-primary text-4xl">Meu Perfil</h2>
+
+      <section className="sm:flex gap-8 my-8">
+        <ProfileNavbar />
+        <section className="flex-auto my-4 md:my-0">
+          <Outlet />
+        </section>
       </section>
-    </>
+    </main>
   );
 };
 

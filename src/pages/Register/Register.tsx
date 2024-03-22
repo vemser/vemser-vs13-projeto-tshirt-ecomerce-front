@@ -1,14 +1,14 @@
-import { useForm } from 'react-hook-form'
-import womanImage from '../../assets/foto-mulher-jovem.svg'
+import { useForm } from 'react-hook-form';
+import womanImage from '../../assets/foto-mulher-jovem.svg';
 
 import { yupResolver } from "@hookform/resolvers/yup";
-import { schema } from '../../schemas/RegisterSchemas';
-import { Link, NavLink } from 'react-router-dom';
 import { LuChevronLeft } from "react-icons/lu";
+import { Link, NavLink } from 'react-router-dom';
+import { schema } from '../../schemas/RegisterSchemas';
 
 export function Register(): JSX.Element {
 
-    const { register, handleSubmit, formState: { errors }, reset } = useForm<IRegister>({
+    const { register, handleSubmit, formState: { errors } } = useForm<IRegister>({
         resolver: yupResolver(schema)
     })
 

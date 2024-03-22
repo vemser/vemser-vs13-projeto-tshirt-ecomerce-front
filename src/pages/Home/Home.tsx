@@ -14,7 +14,7 @@ import quotes from "../../assets/quotes.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { LuChevronRight, LuChevronLeft } from 'react-icons/lu';
 import "swiper/css";
-import "./Home.css"
+import heroMobile from "../../assets/hero-mobile.webp";
 
 const tShirtsList = [
   {
@@ -110,16 +110,22 @@ const Home = () => {
 
   return (
     <>
-      <section id="hero" className="w-full flex items-center justify-center pt-10 pb-40">
-        <div className="hero-section w-full max-w-8xl h-full flex items-center justify-around bg-secondary bg-opacity-60 gap-6 px-10 rounded-lg border border-tertiary border-opacity-10">
-          <div className="">
-            <h1 className="text-6xl font-serif font-bold mb-5">
+      <section id="hero" className="w-full flex items-center justify-center pt-0 md:pt-10 pb-10 md:pb-40">
+        <div className="hero-section w-full max-w-8xl h-full flex items-center justify-around bg-secondary bg-opacity-60 gap-6 px-4 rounded-lg border border-tertiary border-opacity-10 flex-wrap mx-4">
+          <div className="mb-8 mt-10">
+            <h1 className="text-2xl md:text-4xl lg:text-6xl font-serif font-bold my-2">
               Descubra o seu estilo <br /> na iShirts
             </h1>
-            <p className="text-3xl font-sans mb-10">Descontos de até 40% OFF</p>
-            <a href="" className="font-sans bg-primary text-white px-5 py-3 rounded-lg">COMPRAR AGORA</a>
+            <p className="text-1x1 md:text-3x1 lg:text-3xl font-sans mb-5 lg:mb-10 md:mb-8 sm:mb-5 ">Descontos de até 40% OFF</p>
+            <button className="bg-primary text-sm text-white py-2.5 rounded-lg transition hover:opacity-90 hover:underline w-full sm:w-36">
+           <a href="#">COMPRAR AGORA</a> 
+          </button>
           </div>
-          <img src={hero} className="self-end h-5/6" alt="Imagem de uma modelo posando com camiseta preta e chapéu branco" />
+          <picture className="self-end w-1/2 md:w-64 lg:w-1/3 mt-4 h-auto" >
+           <source  media="(max-width: 600px)" srcSet={heroMobile}/>
+           <img src={hero} alt="Imagem de uma modelo posando com camiseta preta e chapéu branco" />
+          </picture>
+
         </div>
       </section>
 
@@ -137,7 +143,7 @@ const Home = () => {
             style={{ backgroundImage: `url(${womanCategory})` }}
             className="bg-no-repeat bg-top 2xl:flex-1 2xl:bg-cover w-96 h-96 flex items-end justify-center rounded-xl"
           >
-            <button className="w-11/12 bg-white font-medium py-3 rounded-lg mb-3 transition-colors hover:bg-primary hover:text-white">
+            <button className="w-11/12  bg-white font-medium py-3 rounded-lg mb-3 transition-colors hover:bg-primary hover:text-white">
               Feminino
             </button>
           </div>

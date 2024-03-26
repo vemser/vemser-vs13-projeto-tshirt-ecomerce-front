@@ -39,7 +39,7 @@ function Footer() {
               <li className="font-bold">Termos</li>
               <li><Link to={"/service-terms"}>Termos de serviço</Link></li>
               <li>Política de privacidade</li>
-              <li>Política de cookies</li>
+              <li><Link to={"/cookie-policy"}>Política de Cookies</Link></li>
             </ul>
             <ul className="flex flex-col gap-4">
               <li className="font-bold">Comunidade</li>

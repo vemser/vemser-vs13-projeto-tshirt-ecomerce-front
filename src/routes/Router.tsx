@@ -17,7 +17,8 @@ import { Register } from "../pages/Register/Register";
 import ReviewYourOrder from "../pages/ReviewYourOrder/ReviewYourOrder";
 import Wishlist from "../pages/Wishlist/Wishlist";
 import PrivateRoute from "./PrivateRoute";
-import ServiceTerms from "../pages/ServiceTerms/ServiceTerms";
+import ServiceTerms from "../pages/Terms/ServiceTerms";
+import CookiePolicy from "../pages/Terms/CookiePolicy";
 
 export default function Router() {
   return (
@@ -29,6 +30,7 @@ export default function Router() {
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/product" element={<Product />} />
           <Route path="/service-terms" element={<ServiceTerms />} />
+          <Route path="/cookie-policy" element={<CookiePolicy />} />
 
           <Route element={<PrivateRoute />}>
             <Route path="/review-your-order" element={<ReviewYourOrder />} />

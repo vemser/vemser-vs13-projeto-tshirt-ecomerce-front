@@ -38,7 +38,7 @@ function Footer() {
             <ul className="flex flex-col gap-4">
               <li className="font-bold">Termos</li>
               <li><Link to={"/service-terms"}>Termos de serviço</Link></li>
-              <li>Política de privacidade</li>
+              <li><Link to={"/privacy-policy"}>Política de Privacidade</Link></li>
               <li><Link to={"/cookie-policy"}>Política de Cookies</Link></li>
             </ul>
             <ul className="flex flex-col gap-4">

@@ -141,11 +141,9 @@ export const Login = () => {
         </div>
       </section>
       <div>
-        {loginError && (
+        {loginError && "status" in loginError && (
           <Snackbar open={open} autoHideDuration={1200} onClose={handleClose}>
-            <Alert severity="error">
-              {JSON.parse(loginError.data).message}
-            </Alert>
+            <Alert severity="error">{loginError.data.message}</Alert>
           </Snackbar>
         )}
       </div>

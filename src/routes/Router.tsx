@@ -17,12 +17,13 @@ import { Register } from "../pages/Register/Register";
 import ReviewYourOrder from "../pages/ReviewYourOrder/ReviewYourOrder";
 import Wishlist from "../pages/Wishlist/Wishlist";
 import PrivateRoute from "./PrivateRoute";
+import SettingsComponent from "../pages/Profile/Setings/Setings";
 
 export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<DefaultLayout />}>
+        <Route element={<DefaultLayout />} />
           <Route path="/" element={<Home />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/catalog" element={<Catalog />} />
@@ -42,11 +43,9 @@ export default function Router() {
                 path="/profile/notifications"
                 element={<Notifications />}
               />
-              <Route
-                path="/profile/settings"
-                element={<div>Configurações</div>}
-              />
-            </Route>
+             <Route path="/profile/settings" element={<SettingsComponent />} 
+             />
+
           </Route>
           <Route path="/profile/addresses" element={<ManageAddress />} />
         </Route>

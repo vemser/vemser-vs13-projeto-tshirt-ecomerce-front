@@ -17,6 +17,7 @@ import { Register } from "../pages/Register/Register";
 import ReviewYourOrder from "../pages/ReviewYourOrder/ReviewYourOrder";
 import Wishlist from "../pages/Wishlist/Wishlist";
 import PrivateRoute from "./PrivateRoute";
+import Faq from "../pages/Faq/Faq";
 
 export default function Router() {
   return (
@@ -27,6 +28,7 @@ export default function Router() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/product" element={<Product />} />
+          <Route path="/faq" element={<Faq />} />
 
           <Route element={<PrivateRoute />}>
             <Route path="/review-your-order" element={<ReviewYourOrder />} />

@@ -1,5 +1,6 @@
 import { LuFacebook, LuInstagram, LuTwitter, LuYoutube } from "react-icons/lu";
 import Logo from "../Logo/Logo";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -33,6 +34,10 @@ function Footer() {
               <li>Sobre nós</li>
               <li>Blog</li>
               <li>Parceiros</li>
+            </ul>
+            <ul className="flex flex-col gap-4">
+              <li className="font-bold">Ajuda e Suporte</li>
+              <li><Link to={"/faq"}>FAQ</Link></li>
             </ul>
             <ul className="flex flex-col gap-4">
               <li className="font-bold">Termos</li>

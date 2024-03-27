@@ -1,11 +1,23 @@
 import { LuEye, LuHeart } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
 
-function ProductCard() {
+type ProductCard = {
+  id: number;
+  title: string;
+  description: string;
+  price: string;
+};
+
+interface ProductCardProps {
+  product: ProductCard;
+}
+
+function ProductCard({ product }: ProductCardProps) {
+  const { title, description, price, id } = product;
   const navigate = useNavigate();
 
   const handleProductClick = () => {
-    navigate("/product");
+    navigate(`/product/${id}`);
   };
 
   return (
@@ -36,9 +48,9 @@ function ProductCard() {
         </div>
       </div>
       <div>
-        <p className="font-bold">Nome do produto</p>
-        <p>descricao do produto</p>
-        <span>R$ 100,00</span>
+        <p className="font-bold">{title}</p>
+        <p>{description}</p>
+        <span>{price}</span>
       </div>
     </div>
   );

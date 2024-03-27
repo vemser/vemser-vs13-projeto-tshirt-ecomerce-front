@@ -17,7 +17,6 @@ import { Register } from "../pages/Register/Register";
 import ReviewYourOrder from "../pages/ReviewYourOrder/ReviewYourOrder";
 import Wishlist from "../pages/Wishlist/Wishlist";
 import PrivateRoute from "./PrivateRoute";
-import Settings from "../pages/Profile/Setings/Setings";
 import SettingsComponent from "../pages/Profile/Setings/Setings";
 
 export default function Router() {

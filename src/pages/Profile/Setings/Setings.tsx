@@ -1,54 +1,128 @@
-import { Select } from "@mui/material"
+import { createTheme, Switch, ThemeProvider } from "@mui/material"
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: 'rgb(35, 202, 77)',
+    },
+  },
+  components: {
+    MuiSwitch: {
+      styleOverrides: {
+        root: {
+          width: 52,
+          height: 26,
+          padding: 0,
+          margin: 8,
+        },
+        switchBase: {
+          padding: 1,
+          '&.Mui-checked': {
+            transform: 'translateX(26px)',
+            color: '#fff',
+            '& + .MuiSwitch-track': {
+              backgroundColor: 'rgb(52, 299, 89)',
+            },
+          },
+        },
+        thumb: {
+          width: 24,
+          height: 24,
+        },
+        track: {
+          borderRadius: 26 / 2,
+          backgroundColor: '#1b191999',
+          opacity: 1,
+        },
+      },
+    },
+  },
+});
 
+  
 export default function SettingsComponent() {
-    return (
-        <section>
-            <div>
-                <h1>Appearance</h1>
-                <p>Customize how your theme looks on your device</p>
-                <select id="languageSelect">
-                    <option value="Light">Light</option>
-                    <option value="Black">Black</option>
-                </select>
-                <hr />
-            </div>
+  return (
+      <ThemeProvider theme={theme}>
+          <section className="mt-[-5rem]">
 
+          <div className="p-2 flex items-center justify-between">
             <div>
-                <h1>Language</h1>
-                <p>Select your language</p>
-                <select id="languageSelect">
-                    <option value="portuguese">Português</option>
-                    <option value="english">English</option>
-                    <option value="spanish">Español</option>
-                </select>
-                <hr />
+                <h1 className="text-2xl font-bold mb-2 whitespace-nowrap">Aparence</h1>
+                <p className="text-2xl mb-1 whitespace-nowrap opacity-50">Customize how your looks device</p>            
             </div>
-            
+            <div className="flex justify-end w-full mr-[10rem] ">
+            <select id="languageSelect" className="p-1 border rounded" style={{ backgroundColor: 'rgb(246, 246, 246)' }}>
+                  <option value="portuguese" className="bg-white">Dark</option>
+                  <option value="english" className="bg-white">Of Course</option>
+              </select>
+            </div>
+          </div>
+
+          <hr className="mr-[10rem]" />
+
+          <div className="p-4 flex items-center justify-between">
             <div>
-                <h1>Two-factor Authentication</h1>
-                <p>Keep your account secure by enabling 2FA via mail</p>
-                <hr />
+                <h1 className="text-2xl font-bold mb-2 whitespace-nowrap">Language</h1>
+                <p className="text-2xl mb-2 whitespace-nowrap opacity-50">Select your language</p>
             </div>
-            
+            <div className="flex justify-end w-full mr-[10rem]">
+              <select id="languageSelect" className="p-1 border rounded" style={{ backgroundColor: 'rgb(246, 246, 246)' }}>
+                  <option value="portuguese" className="bg-white">Portuguese</option>
+                  <option value="english" className="bg-white">English</option>
+                  <option value="spanish" className="bg-white">Español</option>
+              </select>
+            </div>
+          </div>
+              
+            <hr className="mr-[10rem]" />
+
+          <div className="p-4 flex items-center justify-between">
             <div>
-                <h1>Push Notifications</h1>
-                <p>Receive push notification</p>
-                <hr />
+                <h1 className="text-2xl font-bold mb-2 whitespace-nowrap">Two-factor Authentication</h1>
+                <p className="text-2xl mb-2 whitespace-nowrap opacity-50">Keep your account secure by enabling 2FA via mail</p>
             </div>
-            
+            <div className="flex justify-end w-full mr-[10rem]">
+                <Switch color="primary" />
+            </div>
+          </div>
+
+          <hr className="mr-[10rem]" />
+
+          <div className="p-4 flex items-center justify-between">
             <div>
-                <h1>Desktop Notification</h1>
-                <p>Receive push nofication in desktop</p>
-                <hr />
+                <h1 className="text-2xl font-bold mb-2 whitespace-nowrap">Push Notifications</h1>
+                <p className="text-2xl mb-2 whitespace-nowrap opacity-50">Receive push notification</p>
             </div>
-            
+            <div className="flex justify-end w-full mr-[10rem]">
+                <Switch color="primary" />
+            </div>
+          </div>
+
+          <hr className="mr-[10rem]" />
+
+          <div className="p-4 flex items-center justify-between">
             <div>
-                <h1>Email Notifications</h1>
-                <p>Receive email notification</p>
-                <hr />
+                <h1 className="text-2xl font-bold mb-2 whitespace-nowrap">Desktop Notification</h1>
+                <p className="text-2xl mb-2 whitespace-nowrap opacity-50">Receive push nofication in desktop</p>
             </div>
-          
-        </section>
-    )
+            <div className="flex justify-end w-full mr-[10rem]">
+                <Switch color="primary" />
+            </div>
+          </div>
+
+          <hr className="mr-[10rem]" />
+
+          <div className="p-4 flex items-center justify-between">
+            <div>
+                <h1 className="text-2xl font-bold mb-2 whitespace-nowrap">Email Notifications</h1>
+                <p className="text-2xl mb-2 whitespace-nowrap opacity-50">Receive email notification</p>
+            </div>
+            <div className="flex justify-end w-full mr-[10rem]">
+                <Switch color="primary" />
+            </div>
+          </div>
+
+          </section>
+      </ThemeProvider>
+  );
 }

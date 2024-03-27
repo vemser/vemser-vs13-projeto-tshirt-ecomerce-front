@@ -4,7 +4,7 @@ import { useLoginMutation } from "../../services/auth";
 
 export default function useAuth() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [login, { isLoading: isLoadingLogin, isError: isErrorLogin }] =
+  const [login, { isLoading: isLoadingLogin, error: loginError }] =
     useLoginMutation();
 
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ export default function useAuth() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      console.log("token", token);
+      // console.log("token", token);
     }
   }, []);
 
@@ -24,22 +24,21 @@ export default function useAuth() {
     localStorage.setItem("token", token);
   };
 
-  const loginUser = (email: string, password: string) => {
-    login({ email, password })
+  const loginUser = (email: string, senha: string) => {
+    login({ email, senha })
       .unwrap()
       .then((res) => {
         setToken(res);
         setIsAuthenticated(true);
         navigate("/");
-      })
-      .catch(() => {});
+      });
   };
 
   return {
     loginUser,
     logout,
     isLoadingLogin,
-    isErrorLogin,
+    loginError,
     isAuthenticated,
   };
 }

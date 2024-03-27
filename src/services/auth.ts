@@ -1,9 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-
-type AuthRequest = {
-  email: string;
-  password: string;
-};
+import { ILogin } from "../types/Login";
 
 const API_URL = import.meta.env.VITE_ECOMMERCE_API;
 
@@ -12,9 +8,9 @@ export const auth = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: API_URL }),
   tagTypes: ["User", "UserResponse"],
   endpoints: (builder) => ({
-    login: builder.mutation<string, AuthRequest>({
+    login: builder.mutation<string, ILogin>({
       query: (credentials) => ({
-        url: "login",
+        url: "auth/login",
         method: "POST",
         body: credentials,
         responseHandler: "text",

@@ -1,56 +1,42 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Alert, Button, Snackbar } from "@mui/material";
 import { useForm } from "react-hook-form";
-import * as yup from "yup";
 import womanImage from "../../../src/assets/foto-mulher-jovem.svg";
 import { NavLink } from "react-router-dom";
 import { LuChevronLeft } from "react-icons/lu";
-import { useEffect, useState } from "react";
-
-interface FormInputs {
-  email: string;
-  password: string;
-}
-
-const schema = yup.object().shape({
-  email: yup.string().required("Email é obrigatório"),
-  password: yup.string().required("Senha é obrigatória"),
-});
+import { loginSchema } from "../../schemas/LoginSchema";
+import { ILogin } from "../../types/Login";
+import useAuth from "../../feature/hooks/useAuth";
+import { SyntheticEvent, useEffect, useState } from "react";
 
 export const Login = () => {
+  const { loginUser, loginError } = useAuth();
   const [open, setOpen] = useState(false);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormInputs>({
-    resolver: yupResolver(schema),
+  } = useForm<ILogin>({
+    resolver: yupResolver(loginSchema),
   });
 
-  const onSubmit = (data: FormInputs) => {
-    console.log(data);
+  const onSubmit = (data: ILogin) => {
+    loginUser(data.email, data.senha);
   };
 
-  useEffect(() => {
-    const registerSuccess = localStorage.getItem("registerSuccess");
-
-    if (registerSuccess !== null) {
-      setOpen(true);
-      localStorage.removeItem("registerSuccess");
-    }
-  }, []);
-
-  const handleClose = (
-    _event: React.SyntheticEvent | Event,
-    reason?: string
-  ) => {
+  const handleClose = (event: SyntheticEvent | Event, reason?: string) => {
     if (reason === "clickaway") {
       return;
     }
-
     setOpen(false);
   };
+
+  useEffect(() => {
+    if (loginError) {
+      setOpen(true);
+    }
+  }, [loginError]);
 
   return (
     <main className="flex md:flex-row flex-col">
@@ -92,18 +78,18 @@ export const Login = () => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="password" className="block">
+            <label htmlFor="senha" className="block">
               Senha
             </label>
             <input
-              {...register("password")}
+              {...register("senha")}
               type="password"
-              name="password"
+              name="senha"
               placeholder="Digite sua senha"
               className="w-full px-3 py-2 border-black border rounded-md"
             />
-            {errors.password && (
-              <p className="text-red-500">{errors.password.message}</p>
+            {errors.senha && (
+              <p className="text-red-500">{errors.senha.message}</p>
             )}
           </div>
 
@@ -134,16 +120,15 @@ export const Login = () => {
           </NavLink>
         </div>
       </section>
-      <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
-        <Alert
-          onClose={handleClose}
-          severity="success"
-          variant="filled"
-          sx={{ width: "100%" }}
-        >
-          Cadastro realizado com sucesso!
-        </Alert>
-      </Snackbar>
+      <div>
+        {loginError && (
+          <Snackbar open={open} autoHideDuration={1200} onClose={handleClose}>
+            <Alert severity="error">
+              {JSON.parse(loginError.data).message}
+            </Alert>
+          </Snackbar>
+        )}
+      </div>
     </main>
   );
 };

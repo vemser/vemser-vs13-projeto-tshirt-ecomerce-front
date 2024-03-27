@@ -3,15 +3,16 @@ import { Alert, Button, Snackbar } from "@mui/material";
 import { useForm } from "react-hook-form";
 import womanImage from "../../../src/assets/foto-mulher-jovem.svg";
 import { NavLink } from "react-router-dom";
-import { LuChevronLeft } from "react-icons/lu";
+import { LuChevronLeft, LuEye, LuEyeOff } from "react-icons/lu";
 import { loginSchema } from "../../schemas/LoginSchema";
 import { ILogin } from "../../types/Login";
 import useAuth from "../../feature/hooks/useAuth";
-import { SyntheticEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export const Login = () => {
   const { loginUser, loginError } = useAuth();
   const [open, setOpen] = useState(false);
+  const [type, setType] = useState("password");
 
   const {
     register,
@@ -25,11 +26,12 @@ export const Login = () => {
     loginUser(data.email, data.senha);
   };
 
-  const handleClose = (event: SyntheticEvent | Event, reason?: string) => {
-    if (reason === "clickaway") {
-      return;
-    }
+  const handleClose = () => {
     setOpen(false);
+  };
+
+  const handlePassToggle = () => {
+    setType(type === "text" ? "password" : "text");
   };
 
   useEffect(() => {
@@ -70,7 +72,7 @@ export const Login = () => {
               type="email"
               name="email"
               placeholder="exemplo@email.com"
-              className="w-full px-3 py-2 border-black border rounded-md"
+              className="w-full border  border-primary p-3 rounded-lg disabled:opacity-50 invalid:border-red-500 "
             />
             {errors.email && (
               <p className="text-red-500">{errors.email.message}</p>
@@ -81,16 +83,34 @@ export const Login = () => {
             <label htmlFor="senha" className="block">
               Senha
             </label>
-            <input
-              {...register("senha")}
-              type="password"
-              name="senha"
-              placeholder="Digite sua senha"
-              className="w-full px-3 py-2 border-black border rounded-md"
-            />
-            {errors.senha && (
-              <p className="text-red-500">{errors.senha.message}</p>
-            )}
+            <div className="relative flex flex-col ">
+              <input
+                {...register("senha")}
+                type={type}
+                name="senha"
+                placeholder="Digite sua senha"
+                className="w-full border  border-primary p-3 rounded-lg disabled:opacity-50 invalid:border-red-500 "
+              />
+              {type === "password" ? (
+                <LuEye
+                  className="absolute top-3 right-4 cursor-pointer hover:bg-gray-100 rounded-full p-1"
+                  fontSize={24}
+                  aria-label="Mostrar Senha"
+                  onClick={handlePassToggle}
+                />
+              ) : (
+                <LuEyeOff
+                  className="absolute  top-3 right-4 cursor-pointer hover:bg-gray-100 rounded-full p-1"
+                  fontSize={24}
+                  aria-label="Esconder Senha"
+                  onClick={handlePassToggle}
+                />
+              )}
+
+              {errors.senha && (
+                <p className="text-red-500">{errors.senha.message}</p>
+              )}
+            </div>
           </div>
 
           <NavLink

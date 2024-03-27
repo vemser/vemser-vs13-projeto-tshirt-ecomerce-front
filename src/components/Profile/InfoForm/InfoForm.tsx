@@ -154,7 +154,7 @@ const InfoForm = ({ fakeUser }: InfoFormProps) => {
               defaultValue={fakeUser.password}
               disabled={!editProfile}
               {...register("password")}
-              className="w-full border  border-primary p-3 rounded-lg disabled:opacity-50 invalid:border-red-500 pl-10" // Adicionamos um padding-left para o ícone não ficar em cima do texto
+              className="w-full border  border-primary p-3 rounded-lg disabled:opacity-50 invalid:border-red-500 pl-10"
             />
             {type === "password" ? (
               <LuEye

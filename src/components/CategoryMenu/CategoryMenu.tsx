@@ -1,4 +1,4 @@
-import { List, ListItem, ListItemText, Divider } from "@mui/material";
+import { List, ListItemButton, ListItemText, Divider } from "@mui/material";
 import { CategoryMenuProps } from '../../types/CategoryMenuProps';
 
 
@@ -14,9 +14,9 @@ function CategoryMenu({ categories, setCategory }: CategoryMenuProps) {
       <List component="nav">
         {categories.map((cat, index) => (
           <div key={index}>
-            <ListItem button onClick={() => handleCategoryChange(cat)}>
+            <ListItemButton onClick={() => handleCategoryChange(cat)}>
               <ListItemText primary={cat} />
-            </ListItem>
+            </ListItemButton>
             <Divider />
           </div>
         ))}

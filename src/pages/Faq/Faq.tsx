@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from "@mui/material";
 import { LuArrowLeft, LuArrowRight, LuChevronDown } from "react-icons/lu";
 import CategoryMenu from '../../components/CategoryMenu/CategoryMenu';
@@ -14,7 +14,8 @@ function Faq() {
   const itemsPerPage = 5;
 
   useEffect(() => {
-    setPage(1);
+    setPage(1); 
+    setAnswersVisible([]); 
   }, [category, searchTerm]);
 
   const toggleAnswer = (index: number) => {
@@ -23,6 +24,11 @@ function Faq() {
       newState[index] = !newState[index];
       return newState;
     });
+  };
+
+  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    setPage(value);
+    setAnswersVisible([]); 
   };
 
   const categories = ['Todos', ...new Set(faqData.map(item => item.category))];
@@ -34,10 +40,6 @@ function Faq() {
     .slice((page - 1) * itemsPerPage, page * itemsPerPage);
 
   const pageCount = Math.ceil(filteredFaqByCategory.length / itemsPerPage);
-
-  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
-    setPage(value);
-  };
 
   return (
     <div className="max-w-4xl mx-auto px-4">

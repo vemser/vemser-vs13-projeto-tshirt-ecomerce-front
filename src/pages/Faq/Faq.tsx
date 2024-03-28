@@ -26,7 +26,7 @@ function Faq() {
     });
   };
 
-  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+  const handlePageChange = (_event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
     setAnswersVisible([]); 
   };
@@ -54,7 +54,7 @@ function Faq() {
             {filteredFaq.map((item, index) => (
               <Accordion key={index} expanded={answersVisible[index]} onChange={() => toggleAnswer(index)}>
                 <AccordionSummary expandIcon={<LuChevronDown />}>
-                  <Typography>{item.question}</Typography>
+                  <Typography variant='h6'>{item.question}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>{item.answer}</Typography>
